@@ -5,6 +5,7 @@
   import { fade, slide } from 'svelte/transition'
   import { onMount } from 'svelte'
   let messagesEnd: HTMLElement
+  import { currentUser } from '$lib/stores/user'
 
   onMount(() => {
     scrollToBottom()
@@ -26,11 +27,11 @@
       class="flex flex-col w-full"
     >
       <div
-        transition:fade={{ delay: 0, duration: 200 }}
+        transition:fade={{ delay: 0, duration: 300 }}
         class="flex gap-2 items-center mt-5 md:mt-0 mb-2"
       >
         <Icon icon="simple-icons:openai" class="w-10 h-10" />
-        <h1 class="text-3xl">chat gpt</h1>
+        <h1 class="text-3xl">gpt-3.5-turbo</h1>
       </div>
     </div>
   {/if}
@@ -56,15 +57,17 @@
   </div>
 
   <div class="py-5 w-full">
-    <div class="w-full flex flex-col gap-2">
+    <div class="w-full flex flex-col gap-5">
       {#each $messages as message}
         {#if message.role === 'user'}
           <div>
-            <span class="text-primary">{message.role}</span>: {@html message.content}
+            <span class="text-primary"
+              >{$currentUser ? $currentUser?.username : 'no'}</span
+            >: {@html message.content}
           </div>
         {:else}
           <div>
-            <span class="text-primary">{message.role}</span>: {@html message.content}
+            <span class="text-accent">{message.role ? 'chatGPT' : 'bot'}</span>: {@html message.content}
           </div>
         {/if}
       {/each}

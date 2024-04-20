@@ -125,12 +125,23 @@
               <li>
                 <a href="/ai/chat">
                   <div class="flex gap-2 items-center font-bold">
-                    <Icon icon="mdi-robot" class="w-5 h-5" />
+                    <Icon icon="simple-icons:openai" class="w-5 h-5" />
                     <div>AI</div>
                     <div class="badge badge-accent">new</div>
                   </div>
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="https://engage-dev.com/pb/_/"
+                  class="font-bold flex items-center gap-2"
+                >
+                  <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
+                  <div>PocketBase</div>
+                </a>
+              </li>
+
               <li>
                 <a
                   href="/my/settings/profile"
