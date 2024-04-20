@@ -6,7 +6,7 @@
 </script>
 
 <section class="">
-  {#if $messages.length < 0}
+  {#if $messages.length < 1}
     <div
       transition:slide={{ delay: 0, duration: 500 }}
       class="flex flex-col w-full"
