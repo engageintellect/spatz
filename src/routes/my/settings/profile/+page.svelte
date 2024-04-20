@@ -83,6 +83,7 @@
                   )
                 : `https://ui-avatars.com/api/?name=${data.user?.email}`}
               alt="User avatar"
+              id="avatar-preview"
             />
           {:else}
             <Icon

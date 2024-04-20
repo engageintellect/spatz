@@ -9,6 +9,7 @@
   import { onMount } from 'svelte'
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
+  import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
 
   export let data: PageData
 
@@ -134,7 +135,7 @@
 
               <li>
                 <a
-                  href="https://engage-dev.com/pb/_/"
+                  href={`${PUBLIC_POCKETBASE_URL}/_/`}
                   class="font-bold flex items-center gap-2"
                 >
                   <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
