@@ -41,7 +41,7 @@
       </li>
     {/each}
   </ul>
-  <div class="w-full max-w-lg px-2">
+  <div class="w-full px-2">
     <slot />
   </div>
 </div>
