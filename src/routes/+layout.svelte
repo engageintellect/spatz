@@ -110,29 +110,54 @@
 
             <ul
               tabindex="-1"
-              class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-primary mt-3 z-50"
+              class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-52 border border-primary mt-3 z-50"
             >
               <li class="mb-5">
                 <div
                   class="bg-primary hover:bg-primary text-primary-content w-full truncate"
                 >
-                  <a href="/my/settings/profile" class="truncate"
-                    >{$currentUser?.email}</a
+                  <a href="/my/settings/profile" class="truncate font-bold"
+                    >{$currentUser?.username}</a
                   >
                 </div>
               </li>
 
               <li>
                 <a href="/ai/chat">
-                  <div class="flex gap-2">
+                  <div class="flex gap-2 items-center font-bold">
+                    <Icon icon="mdi-robot" class="w-5 h-5" />
                     <div>AI</div>
                     <div class="badge badge-accent">new</div>
                   </div>
                 </a>
               </li>
-              <li><a href="/my/settings/profile">Profile</a></li>
-              <li><a href="/my/settings/account">Account</a></li>
-              <li><a href="/my/settings/security">Settings</a></li>
+              <li>
+                <a
+                  href="/my/settings/profile"
+                  class="font-bold flex items-center gap-2"
+                >
+                  <Icon icon="mdi-user" class="w-5 h-5" />
+                  <div>Profile</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/my/settings/account"
+                  class="font-bold flex items-center gap-2"
+                >
+                  <Icon icon="mdi-grid" class="w-5 h-5" />
+                  <div>Account</div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/my/settings/security"
+                  class="font-bold flex items-center gap-2"
+                >
+                  <Icon icon="mdi-gear" class="w-5 h-5" />
+                  <div>Settings</div>
+                </a>
+              </li>
 
               <form
                 class="w-full flex mt-5"
@@ -145,9 +170,9 @@
                   }
                 }}
               >
-                <button class="btn btn-primary btn-sm w-full">
+                <button class="btn w-full">
                   <div class="flex w-full items-center justify-between">
-                    <div>logout</div>
+                    <div class="font-bold">logout</div>
 
                     <Icon icon="mdi-logout" class="w-5 h-5" />
                   </div>
