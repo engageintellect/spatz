@@ -34,7 +34,7 @@
 
 <div class="h-full min-h-screen">
   <div class="bg-base-100 text-neutral-content">
-    <div class="navbar max-w-xl mx-auto text-base-content">
+    <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
         <a href="/" class="btn btn-primary text-xl">spatz</a>
       </div>
@@ -165,7 +165,7 @@
     </div>
   </div>
 
-  <div class="max-w-xl mx-auto p-2 w-full">
+  <div class="max-w-2xl mx-auto p-2 w-full">
     <slot />
   </div>
 

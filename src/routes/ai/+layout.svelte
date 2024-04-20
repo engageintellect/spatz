@@ -7,31 +7,34 @@
     },
 
     {
-      title: 'a',
+      title: 'a really really long',
       href: '/ai/a',
     },
     {
-      title: 'b',
+      title: 'b really really long',
       href: '/ai/b',
     },
     {
-      title: 'c',
+      title: 'c really really long',
       href: '/ai/c',
     },
   ]
 </script>
 
-<div class=" w-full h-full bg-base-100">
+<div class="w-full h-full bg-base-100">
   <a href="/ai" class="text-7xl">ai</a>
 </div>
 <div class="divider bg-base-100" />
-<div class="flex w-full h-full">
-  <ul class="sticky p-0 top-0 menu bg-base-100 h-full w-40 rounded-box">
+<div class="flex flex-col md:flex-row w-full h-full">
+  <ul
+    class="sticky top-0 menu w-full menu-horizontal gap-2 overflow-auto flex flex-nowrap md:menu-vertical bg-base-100 h-full md:w-40 md:rounded-box"
+  >
     {#each navigation as navItem}
       <li>
         <a
           href={navItem.href}
-          class="text-lg font-medium {$page.url.pathname === navItem.href
+          class="text-lg font-medium bg-base-200 {$page.url.pathname ===
+          navItem.href
             ? 'active hover:bg-neutral'
             : ''}">{navItem.title}</a
         >
