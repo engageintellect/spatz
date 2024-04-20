@@ -3,6 +3,20 @@
   const { input, handleSubmit, messages } = useChat()
   import Icon from '@iconify/svelte'
   import { fade, slide } from 'svelte/transition'
+  import { onMount } from 'svelte'
+  let messagesEnd: HTMLElement
+
+  onMount(() => {
+    scrollToBottom()
+  })
+
+  $: $messages, scrollToBottom()
+
+  function scrollToBottom() {
+    if (messagesEnd) {
+      messagesEnd.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 </script>
 
 <section class="">
@@ -13,12 +27,11 @@
     >
       <div
         transition:fade={{ delay: 0, duration: 200 }}
-        class="flex gap-2 items-center mt-5 md:mt-0"
+        class="flex gap-2 items-center mt-5 md:mt-0 mb-2"
       >
         <Icon icon="simple-icons:openai" class="w-10 h-10" />
         <h1 class="text-3xl">chat gpt</h1>
       </div>
-      <p class="pb-5">Enter your query below...</p>
     </div>
   {/if}
 
@@ -28,6 +41,7 @@
         <!-- TODO: This can be cleaner -->
         <!-- svelte-ignore a11y-autofocus -->
         <input
+          placeholder="Enter your query"
           autofocus
           bind:value={$input}
           class="w-full input input-bordered focus:outline-none"
@@ -55,5 +69,6 @@
         {/if}
       {/each}
     </div>
+    <div bind:this={messagesEnd}></div>
   </div>
 </section>
