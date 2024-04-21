@@ -4,7 +4,7 @@
 
 A complete, fullstack template for Svelte.
 
-[Demo App](https://spatz.engage-dev.com) [Hello](https://spatz.engage-dev.com)
+[Demo App](https://spatz.engage-dev.com)
 
 ## Features
 
