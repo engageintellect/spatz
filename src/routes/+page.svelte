@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_DOCS_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
 </script>
@@ -73,10 +74,7 @@
           </div>
         </h1>
         <p class="mt-2">
-          visit <a
-            class="text-primary underline"
-            href="https://github.com/engageintellect/spatz/tree/main/docs"
-            >docs</a
+          visit <a class="text-primary underline" href={PUBLIC_DOCS_URL}>docs</a
           > for more info
         </p>
 
@@ -88,7 +86,7 @@
             <div class="flex items-center gap-2">
               Use Template
 
-              <Icon icon="mdi-github" class="w-7 h-7" />
+              <Icon icon="mdi-download" class="w-7 h-7" />
             </div>
           </a>
 
@@ -206,7 +204,13 @@
 
       <div>
         <h1 class="text-3xl mb-5 text-primary font-thin">Getting Started</h1>
-        <h1 class="text-xl">Sveltekit Config</h1>
+        <a href={PUBLIC_DOCS_URL} class="btn btn-primary">
+          <div class="flex items-center gap-2">
+            <div>spatz docs</div>
+            <Icon icon="mdi-github" class="w-7 h-7" />
+          </div>
+        </a>
+        <h1 class="text-xl mt-5">Sveltekit Config</h1>
         <p>Run the below commands to get started.</p>
 
         <div class="mockup-code">
@@ -217,25 +221,59 @@
           <pre data-prefix="$"><code
               >touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local</code
             ></pre>
-          <pre data-prefix="$"><code>pnpm i && pnpm run dev</code></pre>
+
+          <pre data-prefix="$"><code
+              >touch 'PUBLIC_REPOSITORY_URL=https://github.com/engageintellect/spatz' >> .env.local</code
+            ></pre>
+          <pre data-prefix="$"><code
+              >touch 'OPENAI_API_KEY=YOUR API KEY' >> .env.local</code
+            ></pre>
+          <pre data-prefix="$"><code>pnpm i && pnpm run dev --host</code></pre>
         </div>
       </div>
 
       <div>
-        <h1 class="text-xl">Pocketbase Config</h1>
-        <p>Run the below commands to get started.</p>
+        <div>
+          <h1 class="text-xl">Pocketbase Config</h1>
+          <p>1. Run the below commands to get started.</p>
 
-        <div class="mockup-code">
-          <pre data-prefix="$"><code
-              >wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.9/pocketbase_0.22.9_linux_amd64.zip</code
-            ></pre>
-          <pre data-prefix="$"><code
-              >unzip pocketbase_0.22.9_linux_amd64.zip</code
-            ></pre>
-          <pre data-prefix="$"><code
-              >./pocketbase serve --http="0.0.0.0:8090"</code
-            ></pre>
+          <div class="mockup-code">
+            <pre data-prefix="$"><code
+                >wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.9/pocketbase_0.22.9_linux_amd64.zip</code
+              ></pre>
+            <pre data-prefix="$"><code
+                >unzip pocketbase_0.22.9_linux_amd64.zip</code
+              ></pre>
+          </div>
         </div>
+
+        <div>
+          <p>2. Run the below commands to get started.</p>
+
+          <div class="mockup-code">
+            <pre data-prefix="$"><code
+                >./pocketbase serve --http="0.0.0.0:8090"</code
+              ></pre>
+          </div>
+        </div>
+
+        <p>
+          2. Log into the Pocketbase Admin UI <a
+            class="text-primary underline"
+            href="http://localhost:8090/_/">http://localhost:8090/_/</a
+          >.
+        </p>
+        <p>
+          3. Go to settings > Import collections, then paste in the contents of
+          ./pocketbase/
+        </p>
+
+        <p>
+          4. Visit app in browser <a
+            class="text-primary underline"
+            href="http://localhost:5173">http://localhost:5173</a
+          >
+        </p>
       </div>
 
       <div class="mb-10">
