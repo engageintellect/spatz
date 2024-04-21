@@ -4,8 +4,6 @@
 
 A complete, fullstack template for Svelte.
 
-read the [docs](/docs/README.md)
-
 ## Features
 
 - [Sveltekit](https://kit.svelte.dev/): Futuristic web framework for building blazing fast web apps.
@@ -36,5 +34,6 @@ unzip pocketbase_0.22.9_linux_amd64.zip
 git clone https://github.com/engageintellect/spatz
 cd spatz
 touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local
+touch 'OPENAI_API_KEY=<YOUR API KEY>' >> .env.local
 pnpm i && pnpm run dev
 ```
