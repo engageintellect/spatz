@@ -4,12 +4,6 @@
 
 A complete, fullstack template for Svelte.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=spatz)
-
-| hello                                     | there                                              | world                                     |
-| ----------------------------------------- | -------------------------------------------------- | ----------------------------------------- |
-| [Demo Site](https://spatz.engage-dev.com) | [Documentation](https://spatz.engage-dev.com/docs) | [Chat](https://spatz.engage-dev.com/chat) |
-
 [Demo Site](https://spatz.engage-dev.com)
 
 ## Features
