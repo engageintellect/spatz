@@ -40,10 +40,24 @@ unzip pocketbase_0.22.9_linux_amd64.zip
 
 ### Client Setup
 
+1. Clone the repo and navigate to the project directory.
+
 ```bash
 git clone https://github.com/engageintellect/spatz
 cd spatz
+```
+
+2. Set your Pocketbase URL and OpenAI API key in a `.env.local` file.
+
+```bash
 touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local
 touch 'OPENAI_API_KEY=<YOUR API KEY>' >> .env.local
-pnpm i && pnpm run dev
 ```
+
+3. Install the dependencies and start the development server.
+
+```bash
+pnpm i && pnpm run dev --host
+```
+
+4. Open your browser to `http://localhost:5173` to see the app.
