@@ -8,18 +8,12 @@ A complete, fullstack template for Svelte.
 
 ## Features
 
-- [Sveltekit](https://kit.svelte.dev/)
-  - A complete, fullstack template for Svelte.
-- [Pocketbase](https://pocketbase.io)
-  - A complete, fullstack template for Svelte.
-- [OpenAI](https://openai.com)
-  - A complete, fullstack template for Svelte.
-- [Vercel AI SDK](https://vercel.com/ai)
-  - A complete, fullstack template for Svelte.
-- [TailwindCSS](https://tailwindcss.com)
-  - A complete, fullstack template for Svelte.
-- [Zod](https://zod.dev)
-  - A complete, fullstack template for Svelte.
+- [Sveltekit](https://kit.svelte.dev/): A complete, fullstack template for Svelte.
+- [Pocketbase](https://pocketbase.io): A complete, fullstack template for Svelte.
+- [OpenAI](https://openai.com): A complete, fullstack template for Svelte.
+- [Vercel AI SDK](https://vercel.com/ai): A complete, fullstack template for Svelte.
+- [TailwindCSS](https://tailwindcss.com): A complete, fullstack template for Svelte.
+- [Zod](https://zod.dev): A complete, fullstack template for Svelte.
 
 ## Getting Started
 
