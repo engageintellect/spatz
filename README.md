@@ -9,7 +9,7 @@ A complete, fullstack template for Svelte.
 ## Features
 
 - [Sveltekit](https://kit.svelte.dev/)
-  -- hello world
+  - [Sveltekit](https://kit.svelte.dev/)
 - [Pocketbase](https://pocketbase.io)
 - [OpenAI](https://openai.com)
 - [Vercel AI SDK](https://vercel.com/ai)
