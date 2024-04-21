@@ -2,6 +2,8 @@
 
 ## Description
 
+[link to docs](/docs/README.md)
+
 A complete, fullstack template for Svelte.
 
 ## Features
@@ -14,3 +16,13 @@ A complete, fullstack template for Svelte.
 - Zod
 
 ## Getting Started
+
+### Prerequisites
+
+1.
+2.
+3.
+
+### Pocketbase Setup
+
+### Client Setup
