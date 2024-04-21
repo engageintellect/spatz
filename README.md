@@ -4,6 +4,8 @@
 
 A complete, fullstack template for Svelte.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=spatz)
+
 ## Features
 
 - [Sveltekit](https://kit.svelte.dev/): Futuristic web framework for building blazing fast web apps.
