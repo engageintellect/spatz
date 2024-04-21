@@ -4,6 +4,7 @@
   import Input from '$lib/components/Input.svelte'
   import { getImageURL } from '$lib/utils'
   import Icon from '@iconify/svelte'
+  import toast from 'svelte-french-toast'
 
   export let data
   export let form
@@ -30,9 +31,11 @@
     return async ({ result }: any) => {
       switch (result.type) {
         case 'success':
+          toast.success('profile updated.')
           await invalidateAll()
           break
         case 'error':
+          toast.error('an error occurred.')
           break
         default:
           await applyAction(result)

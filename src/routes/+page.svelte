@@ -1,7 +1,6 @@
 <script lang="ts">
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
-  import spatzImg from '$lib/assets/images/spatz.png'
 </script>
 
 <div class="">
@@ -57,16 +56,11 @@
             class="w-52 h-52 text-base-300"
           />
           <Icon icon="simple-icons:zod" class="w-52 h-52 text-base-300" />
-          <!-- <img
-            src={spatzImg}
-            alt="avatar"
-            class="w-full object-cover h-72 drop-shadow-lg"
-          /> -->
         </div>
       </div>
     </div>
   {:else}
-    <div class="flex flex-col gap-5">
+    <div class="flex flex-col gap-10">
       <div>
         <h1 class="text-7xl">
           <div
@@ -78,20 +72,44 @@
             </div>
           </div>
         </h1>
-        <p>
-          Visit <a
+        <p class="mt-2">
+          visit <a
             class="text-primary underline"
-            href="https://github.com/engageintellect/pocketbase-sveltekit-auth/tree/main/docs"
+            href="https://github.com/engageintellect/spatz/tree/main/docs"
             >docs</a
-          > to read the documentation
+          > for more info
         </p>
+
+        <div class="w-full flex gap-2 mt-2 max-w-md">
+          <a
+            href="https://github.com/new?template_name=spatz&template_owner=engageintellect"
+            class="btn btn-primary my-2 flex-1"
+          >
+            <div class="flex items-center gap-2">
+              Use Template
+
+              <Icon icon="mdi-github" class="w-7 h-7" />
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/engageintellect/spatz"
+            class="btn my-2 flex-1"
+          >
+            <div class="flex items-center gap-2">
+              Github
+
+              <Icon icon="mdi-github" class="w-7 h-7" />
+            </div>
+          </a>
+        </div>
       </div>
 
-      <div class="mt-5">
-        <h1 class="text-3xl">About</h1>
+      <div class="">
+        <h1 class="text-3xl text-primary font-thin">About</h1>
         <p>
           <strong>Let's face it</strong>, we'd all like to build
-          <span class="text-primary uppercase italic">fast</span>, and there are
+          <span class="font-bold uppercase italic">fast</span>, and there are
           some things we need to implement 90% of time which are a hassle to set
           up over and over again.
         </p>
@@ -103,11 +121,11 @@
         </ul>
       </div>
       <p>
-        <span class="text-primary font-extrabold">spatz</span> is ready OTB to help
-        you build your next great idea.
+        <span class="text-primary underline">spatz</span> is ready OTB to help you
+        build your next great idea.
       </p>
       <div>
-        <h1 class="text-3xl">Technologies</h1>
+        <h1 class="text-3xl text-primary font-thin">Technologies</h1>
         <div class="overflow-x-auto">
           <table class="table">
             <!-- head -->
@@ -145,7 +163,11 @@
                   ><a
                     href="https://sdk.vercel.ai/docs/guides/frameworks/sveltekit"
                     class="text-primary underline">Vercel AI SDK</a
-                  > with streaming API.</td
+                  >
+                  with streaming
+                  <a href="https://openai.com" class="text-primary underline"
+                    >OpenAI</a
+                  > API.</td
                 >
               </tr>
 
@@ -183,15 +205,15 @@
       </div>
 
       <div>
-        <h1 class="text-3xl mb-5">Getting Started</h1>
+        <h1 class="text-3xl mb-5 text-primary font-thin">Getting Started</h1>
         <h1 class="text-xl">Sveltekit Config</h1>
         <p>Run the below commands to get started.</p>
 
         <div class="mockup-code">
           <pre data-prefix="$"><code
-              >git clone https://github.com/engageintellect/pocketbase-sveltekit-auth</code
+              >git clone https://github.com/engageintellect/spatz</code
             ></pre>
-          <pre data-prefix="$"><code>cd pocketbase-sveltekit-auth</code></pre>
+          <pre data-prefix="$"><code>cd spatz</code></pre>
           <pre data-prefix="$"><code
               >touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local</code
             ></pre>
@@ -217,26 +239,17 @@
       </div>
 
       <div class="mb-10">
-        <h1 class="text-3xl">Contribute</h1>
-        <p>Come help make this template even better, sent a PR to:</p>
+        <div class="mb-5">
+          <h1 class="text-3xl text-primary font-thin">Contribute</h1>
+          <p>Come help make this template even better, sent a PR to:</p>
+        </div>
 
         <a
-          href="https://github.com/engageintellect/pocketbase-sveltekit-auth"
-          class="btn btn-primary my-2"
+          href="https://github.com/engageintellect/spatz"
+          class="btn btn-primary my-2 flex-1"
         >
           <div class="flex items-center gap-2">
             Github
-
-            <Icon icon="mdi-github" class="w-7 h-7" />
-          </div>
-        </a>
-
-        <a
-          href="https://github.com/new?template_name=pocketbase-sveltekit-auth&template_owner=engageintellect"
-          class="btn my-2"
-        >
-          <div class="flex items-center gap-2">
-            Use Template
 
             <Icon icon="mdi-github" class="w-7 h-7" />
           </div>

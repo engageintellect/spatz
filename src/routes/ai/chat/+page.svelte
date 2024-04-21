@@ -6,6 +6,8 @@
   import { onMount } from 'svelte'
   let messagesEnd: HTMLElement
   import { currentUser } from '$lib/stores/user'
+  import { getImageURL } from '$lib/utils'
+  import robot from '$lib/assets/images/robot14-nobg.png'
 
   onMount(() => {
     scrollToBottom()
@@ -36,7 +38,7 @@
     </div>
   {/if}
 
-  <div class="sticky top-14 md:top-0 bg-base-100 w-full">
+  <div class="sticky top-14 md:top-0 bg-base-100 w-full z-10">
     <form class="bg-base-100 py-2 top-0 w-full" on:submit={handleSubmit}>
       <div class="flex gap-2 w-full">
         <!-- TODO: This can be cleaner -->
@@ -56,18 +58,57 @@
     </form>
   </div>
 
-  <div class="py-5 w-full">
+  <div class="py-5 w-full -z-10">
     <div class="w-full flex flex-col gap-5">
       {#each $messages as message}
         {#if message.role === 'user'}
-          <div>
-            <span class="text-primary"
-              >{$currentUser ? $currentUser?.username : 'no'}</span
-            >: {@html message.content}
+          <div class="chat chat-end">
+            <div class="chat-image avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  src={$currentUser?.avatar
+                    ? getImageURL(
+                        $currentUser?.collectionId,
+                        $currentUser?.id,
+                        $currentUser?.avatar,
+                      )
+                    : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
+                  alt="User avatar"
+                />
+              </div>
+            </div>
+            <div class="chat-header">
+              {$currentUser ? $currentUser?.username : 'no'}
+              <time class="text-xs opacity-50">12:46</time>
+            </div>
+            <div class="card bg-base-300 text-base-content">
+              <div class="card-body py-2 px-4">
+                {@html message.content}
+              </div>
+            </div>
+            <div class="chat-footer opacity-50">Seen at 12:46</div>
           </div>
         {:else}
-          <div>
-            <span class="text-accent">{message.role ? 'chatGPT' : 'bot'}</span>: {@html message.content}
+          <div class="chat chat-start">
+            <div class="chat-image avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS chat bubble component"
+                  src={robot}
+                  class="bg-primary scale-x-[-1]"
+                />
+              </div>
+            </div>
+            <div class="chat-header">
+              {message.role ? 'chatGPT' : 'bot'}
+              <time class="text-xs opacity-50">12:45</time>
+            </div>
+            <div class="card bg-primary text-primary-content">
+              <div class="card-body py-2 px-4">
+                {@html message.content}
+              </div>
+            </div>
+            <div class="chat-footer opacity-50">Delivered</div>
           </div>
         {/if}
       {/each}

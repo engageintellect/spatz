@@ -10,6 +10,7 @@
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
   import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
+  import { Toaster } from 'svelte-french-toast'
 
   export let data: PageData
 
@@ -32,6 +33,8 @@
     localStorage.setItem('selectedTheme', theme)
   }
 </script>
+
+<Toaster />
 
 <div class="h-full min-h-screen">
   <div class="bg-base-100 text-neutral-content">
@@ -178,13 +181,14 @@
                 use:enhance={() => {
                   return async ({ result }) => {
                     pb.authStore.clear()
+                    window.location.href = '/'
                     await applyAction(result)
                   }
                 }}
               >
                 <button class="btn w-full">
                   <div class="flex w-full items-center justify-between">
-                    <div class="font-bold">logout</div>
+                    <div class="font-bold">Logout</div>
 
                     <Icon icon="mdi-logout" class="w-5 h-5" />
                   </div>
