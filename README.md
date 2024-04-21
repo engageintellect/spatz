@@ -2,18 +2,18 @@
 
 ## Description
 
-read the [docs](/docs/README.md)
-
 A complete, fullstack template for Svelte.
+
+read the [docs](/docs/README.md)
 
 ## Features
 
-- [Sveltekit](https://kit.svelte.dev/): A complete, fullstack template for Svelte.
-- [Pocketbase](https://pocketbase.io): A complete, fullstack template for Svelte.
-- [OpenAI](https://openai.com): A complete, fullstack template for Svelte.
-- [Vercel AI SDK](https://vercel.com/ai): A complete, fullstack template for Svelte.
-- [TailwindCSS](https://tailwindcss.com): A complete, fullstack template for Svelte.
-- [Zod](https://zod.dev): A complete, fullstack template for Svelte.
+- [Sveltekit](https://kit.svelte.dev/): Futuristic web framework for building blazing fast web apps.
+- [Pocketbase](https://pocketbase.io): Self-contained Database and User Auth.
+- [OpenAI](https://openai.com): chatGPT 3.5-turbo & 4.0-turbo for contextually aware chatbots.
+- [Vercel AI SDK](https://vercel.com/ai): AI/ML models for image, text, and audio processing.
+- [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for rapid UI development.
+- [Zod](https://zod.dev): TypeScript-first schema declaration and validation.
 
 ## Getting Started
 
