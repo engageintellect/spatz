@@ -34,7 +34,7 @@ unzip pocketbase_0.22.9_linux_amd64.zip
 ./pocketbase serve --http="0.0.0.0:8090"
 ```
 
-3. Log in to the Pocketbase admin console at `[http://localhost:8090/_/](http://localhost:8090/_/)` and create a new database.
+3. Log in to the Pocketbase admin console at `http://localhost:8090/_/` and create a new database.
 
 4. Go to settings > Import collections, then paste in the contens of ./pocketbase/pb_schema.json (from this repo) and click import.
 
