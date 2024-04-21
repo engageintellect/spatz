@@ -9,7 +9,7 @@ A complete, fullstack template for Svelte.
 ## Features
 
 - [Sveltekit](https://kit.svelte.dev/): Futuristic web framework for building blazing fast web apps.
-- [Pocketbase](https://pocketbase.io): Self-contained Database and User Auth.
+- [Pocketbase](https://pocketbase.io): Self-contained User Auth, Database, Admin UI, and API documentation.
 - [OpenAI](https://openai.com): chatGPT 3.5-turbo & 4.0-turbo for contextually aware chatbots.
 - [Vercel AI SDK](https://vercel.com/ai): AI/ML models for image, text, and audio processing.
 - [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for rapid UI development.
