@@ -19,14 +19,12 @@ A complete, fullstack template for Svelte.
 
 ### Pocketbase Setup
 
-````bash
-
 1. Create a directory for your Pocketbase instance and navigate to it.
 
 ```bash
 mkdir pb-spatz
 cd pb-spatz
-````
+```
 
 2. Download the latest release of Pocketbase, unzip it, and start the server.
 
