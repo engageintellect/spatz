@@ -4,6 +4,8 @@
 
 A complete, fullstack template for Svelte.
 
+![Image Description](/src/lib/assets/images/spatz.png)
+
 [Demo App](https://spatz.engage-dev.com)
 
 ## Features

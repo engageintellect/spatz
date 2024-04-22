@@ -7,15 +7,15 @@
     },
 
     {
-      title: 'a really really long',
+      title: 'a',
       href: '/ai/a',
     },
     {
-      title: 'b really really long',
+      title: 'b',
       href: '/ai/b',
     },
     {
-      title: 'c really really long',
+      title: 'c',
       href: '/ai/c',
     },
   ]
