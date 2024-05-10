@@ -6,7 +6,7 @@
 <form
   action="?/resetPassword"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto"
+  class="card max-w-md sm:mt-10 mx-auto"
 >
   <div class="mb-5">
     <h1 class="text-7xl">reset password</h1>

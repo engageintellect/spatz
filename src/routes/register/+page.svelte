@@ -36,6 +36,7 @@
       errors={form?.errors?.email}
       placeholder={'Email'}
     />
+
     <Input
       type="password"
       id="password"
@@ -54,15 +55,10 @@
       placeholder={'Confirm Password'}
     />
 
-    <div class="w-full max-w-lg">
-      <a
-        href="/reset-password"
-        class="font-medium text-primary hover:cursor-pointer hover:underline"
-      >
-        Forgot Password?</a
-      >
+    <div class="alert mb-2 text-sm">
+      Your password will be encrypted for your safety, it will not be readable
+      by anyone.
     </div>
-
     <button class="btn btn-primary">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>

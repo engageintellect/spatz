@@ -2,6 +2,7 @@
   import { PUBLIC_DOCS_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
+  import { fade } from 'svelte/transition'
 </script>
 
 <div class="">
@@ -15,21 +16,38 @@
           <p class="py-5">
             The best way to start your next <a
               href="https://kit.svelte.dev"
-              class="text-primary underline">Sveltekit</a
+              class="text-primary underline">Svelte</a
             >
             project, if you care about building
             <span class="text-primary italic">fast</span>...
           </p>
           <div class="max-w-md flex gap-2">
-            <a href="/register" class="btn btn-primary flex-1">let's build</a>
-            <a href="/login" class="btn btn-primary btn-outline flex-1">login</a
+            <a
+              href="/register"
+              class="btn btn-primary flex group items-center justify-between flex-1"
             >
+              <div>let's build</div>
+              <Icon
+                icon="material-symbols:rocket"
+                class="w-7 h-7 md:group-hover:scale-[105%] transition-all duration-500"
+              />
+            </a>
+            <a
+              href="/login"
+              class="btn btn-primary btn-outline flex-1 flex items-cetner justify-between"
+            >
+              <div>login</div>
+              <Icon icon="material-symbols:login" class="w-7 h-7" />
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mockup-browser border border-base-300 shadow-xl mt-5">
+    <div
+      transition:fade={{ duration: 500 }}
+      class="mockup-browser border border-base-300 shadow-xl mt-5"
+    >
       <div class="mockup-browser-toolbar">
         <div class="bg-base-300 px-2 py-1 w-full card">
           <div class="flex items-center gap-1">
@@ -41,7 +59,7 @@
 
       <div class="overflow-auto">
         <div
-          class="flex overflow-auto justify-center items-center border-t border-base-300 bg-primary px-4 gap-2"
+          class="flex overflow-auto justify-center h-64 sm:h-80 transition-all duration-300 items-center border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
         >
           <Icon
             icon="teenyicons-svelte-solid"
