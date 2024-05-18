@@ -8,7 +8,7 @@ import { serialize } from 'object-to-formdata';
 
 export const load: PageServerLoad = ({ locals }) => {
     if (!locals.pb.authStore.isValid) {
-        throw redirect(303, '/login');
+        throw redirect(303, '/auth/login');
     }
 };
 

@@ -23,7 +23,7 @@
           </p>
           <div class="max-w-md flex gap-2">
             <a
-              href="/register"
+              href="/auth/register"
               class="btn btn-primary flex group items-center justify-between flex-1"
             >
               <div>let's build</div>
@@ -33,7 +33,7 @@
               />
             </a>
             <a
-              href="/login"
+              href="/auth/login"
               class="btn btn-primary btn-outline flex-1 flex items-cetner justify-between"
             >
               <div>login</div>

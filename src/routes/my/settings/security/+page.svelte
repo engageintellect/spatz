@@ -34,7 +34,7 @@
         placeholder="Confirm Password"
       />
       <a
-        href="/reset-password"
+        href="/auth/reset-password"
         class="text-primary hover:cursor-point hover:underline"
       >
         I forgot my password</a

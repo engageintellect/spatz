@@ -1,13 +1,15 @@
 <script lang="ts">
   import { applyAction, enhance } from '$app/forms'
+  import { goto } from '$app/navigation'
   import Input from '$lib/components/Input.svelte'
+  import { redirect } from '@sveltejs/kit'
   export let form
   let loading = false
   import { fade } from 'svelte/transition'
 </script>
 
 <form
-  action="?/register"
+  action="?/login"
   method="POST"
   class="card sm:max-w-md sm:mt-10 mx-auto"
   use:enhance={() => {
@@ -22,12 +24,13 @@
   }}
 >
   <div class="mb-5">
-    <h1 class="text-7xl">register</h1>
-    <p class=" pt-2">
-      Or <a href="/login" class="underline text-primary">login</a> if you have an
-      account.
+    <h1 class="text-7xl">login</h1>
+    <p class="pt-2">
+      Or <a href="/auth/register" class="underline text-primary">register</a> to
+      create an account.
     </p>
   </div>
+
   <div class="form-control gap-0 mb-4">
     <Input
       type="email"
@@ -36,7 +39,6 @@
       errors={form?.errors?.email}
       placeholder={'Email'}
     />
-
     <Input
       type="password"
       id="password"
@@ -45,25 +47,20 @@
       disabled={loading}
       placeholder={'Password'}
     />
-
-    <Input
-      type="password"
-      id="passwordConfirm"
-      value={form?.data?.password ?? ''}
-      errors={form?.errors?.password}
-      disabled={loading}
-      placeholder={'Confirm Password'}
-    />
-
-    <div class="alert mb-2 text-sm">
-      Your password will be encrypted for your safety, it will not be readable
-      by anyone.
+    <div class="w-full max-w-lg">
+      <a
+        href="/auth/reset-password"
+        class="font-medium text-primary hover:cursor-pointer hover:underline"
+      >
+        Forgot Password?</a
+      >
     </div>
+
     <button class="btn btn-primary">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>
       {:else}
-        register
+        login
       {/if}
     </button>
   </div>

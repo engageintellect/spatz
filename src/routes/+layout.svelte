@@ -198,8 +198,10 @@
           </div>
         {:else}
           <div class="flex items-center text-sm">
-            <div><a href="/login" class="btn btn-ghost">Log in</a></div>
-            <div><a href="/register" class="btn btn-ghost">Register</a></div>
+            <div><a href="/auth/login" class="btn btn-ghost">Log in</a></div>
+            <div>
+              <a href="/auth/register" class="btn btn-ghost">Register</a>
+            </div>
           </div>
         {/if}
       </div>
