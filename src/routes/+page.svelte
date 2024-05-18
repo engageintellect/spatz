@@ -151,7 +151,7 @@
       <div>
         <h1 class="text-4xl text-primary font-bold mb-2">technologies</h1>
         <div
-          class="overflow-x-auto card border border-primary shadow shadow-primary p-2"
+          class="overflow-x-auto card border border-primary/[33%] shadow-md shadow-primary p-2"
         >
           <table class="table card-body">
             <!-- head -->
