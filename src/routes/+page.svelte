@@ -99,7 +99,7 @@
           > for more info
         </p>
 
-        <div class="w-full flex gap-2 mt-2 max-w-md">
+        <div class="w-full flex gap-2 mt-2 w-full">
           <a
             href="https://github.com/new?template_name=spatz&template_owner=engageintellect"
             class="btn btn-primary my-2 flex-1"
@@ -113,19 +113,22 @@
 
           <a
             href="https://github.com/engageintellect/spatz"
-            class="btn my-2 flex-1"
+            class="btn my-2 flex-1 group/githubButton"
           >
             <div class="flex items-center gap-2">
-              github
+              star on github
 
-              <Icon icon="mdi-github" class="w-7 h-7" />
+              <Icon
+                icon="mdi-star"
+                class="w-7 h-7 md:group-hover/githubButton:text-primary transition-color duration-500"
+              />
             </div>
           </a>
         </div>
       </div>
 
       <div class="">
-        <h1 class="text-4xl text-primary font-bold">about</h1>
+        <h1 class="text-4xl text-primary font-bold mb-2">about</h1>
         <p>
           <strong>Let's face it</strong>, we'd all like to build
           <span class="font-bold uppercase italic">fast</span>, but there are
@@ -146,8 +149,10 @@
         to help you build your next great idea.
       </p>
       <div>
-        <h1 class="text-4xl text-primary font-bold">technologies</h1>
-        <div class="overflow-x-auto card border border-primary rounded-lg p-2">
+        <h1 class="text-4xl text-primary font-bold mb-2">technologies</h1>
+        <div
+          class="overflow-x-auto card border border-primary shadow shadow-primary rounded-lg p-2"
+        >
           <table class="table card-body">
             <!-- head -->
             <tbody>
@@ -229,82 +234,90 @@
       </div>
 
       <div>
-        <h1 class="text-4xl mb-2 text-primary font-bold">getting started</h1>
-        <a href={PUBLIC_DOCS_URL} class="btn btn-primary">
+        <div class="mb-2">
+          <h1 class="text-4xl text-primary font-bold mb-2">getting started</h1>
+          <p>It's quick and easy to get started. 5 minutes is all it takes.</p>
+        </div>
+
+        <a href={PUBLIC_DOCS_URL} class="btn btn-primary my-2">
           <div class="flex items-center gap-2">
             <div>spatz docs</div>
             <Icon icon="mdi-github" class="w-7 h-7" />
           </div>
         </a>
-        <h1 class="text-xl font-bold mt-10">Sveltekit Config</h1>
-        <p>Run the below commands to get started.</p>
 
-        <div class="mockup-code my-2">
-          <pre data-prefix="$"><code
-              >git clone https://github.com/engageintellect/spatz</code
-            ></pre>
-          <pre data-prefix="$"><code>cd spatz</code></pre>
-          <pre data-prefix="$"><code
-              >touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local</code
-            ></pre>
-
-          <pre data-prefix="$"><code
-              >touch 'PUBLIC_REPOSITORY_URL=https://github.com/engageintellect/spatz' >> .env.local</code
-            ></pre>
-          <pre data-prefix="$"><code
-              >touch 'OPENAI_API_KEY=YOUR API KEY' >> .env.local</code
-            ></pre>
-          <pre data-prefix="$"><code>pnpm i && pnpm run dev --host</code></pre>
-        </div>
-      </div>
-
-      <div>
         <div>
-          <h1 class="text-xl font-bold">Pocketbase Config</h1>
-          <p>1. Run the below commands to get started.</p>
+          <h1 class="text-xl font-bold mt-10">Sveltekit Config</h1>
+          <p>Run the below commands to get started.</p>
 
           <div class="mockup-code my-2">
             <pre data-prefix="$"><code
-                >wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.9/pocketbase_0.22.9_linux_amd64.zip</code
+                >git clone https://github.com/engageintellect/spatz</code
+              ></pre>
+            <pre data-prefix="$"><code>cd spatz</code></pre>
+            <pre data-prefix="$"><code
+                >touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local</code
+              ></pre>
+
+            <pre data-prefix="$"><code
+                >touch 'PUBLIC_REPOSITORY_URL=https://github.com/engageintellect/spatz' >> .env.local</code
               ></pre>
             <pre data-prefix="$"><code
-                >unzip pocketbase_0.22.9_linux_amd64.zip</code
+                >touch 'OPENAI_API_KEY=YOUR API KEY' >> .env.local</code
+              ></pre>
+            <pre data-prefix="$"><code>pnpm i && pnpm run dev --host</code
               ></pre>
           </div>
         </div>
 
         <div>
-          <p>2. Run the below commands to get started.</p>
+          <div>
+            <h1 class="text-xl font-bold">Pocketbase Config</h1>
+            <p>1. Run the below commands to get started.</p>
 
-          <div class="mockup-code my-2">
-            <pre data-prefix="$"><code
-                >./pocketbase serve --http="0.0.0.0:8090"</code
-              ></pre>
+            <div class="mockup-code my-2">
+              <pre data-prefix="$"><code
+                  >wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.9/pocketbase_0.22.9_linux_amd64.zip</code
+                ></pre>
+              <pre data-prefix="$"><code
+                  >unzip pocketbase_0.22.9_linux_amd64.zip</code
+                ></pre>
+            </div>
           </div>
+
+          <div>
+            <p>2. Run the below commands to get started.</p>
+
+            <div class="mockup-code my-2">
+              <pre data-prefix="$"><code
+                  >./pocketbase serve --http="0.0.0.0:8090"</code
+                ></pre>
+            </div>
+          </div>
+
+          <p>
+            2. Log into the Pocketbase Admin UI <a
+              class="text-primary underline"
+              href="http://localhost:8090/_/">http://localhost:8090/_/</a
+            >.
+          </p>
+          <p>
+            3. Go to settings > Import collections, then paste in the contents
+            of ./pocketbase/pb_schema.json
+          </p>
+
+          <p>
+            4. Visit app in browser <a
+              class="text-primary underline"
+              href="http://localhost:5173">http://localhost:5173</a
+            >
+          </p>
         </div>
-
-        <p>
-          2. Log into the Pocketbase Admin UI <a
-            class="text-primary underline"
-            href="http://localhost:8090/_/">http://localhost:8090/_/</a
-          >.
-        </p>
-        <p>
-          3. Go to settings > Import collections, then paste in the contents of
-          ./pocketbase/pb_schema.json
-        </p>
-
-        <p>
-          4. Visit app in browser <a
-            class="text-primary underline"
-            href="http://localhost:5173">http://localhost:5173</a
-          >
-        </p>
       </div>
 
       <div class="mb-10">
         <div class="mb-2">
-          <h1 class="text-4xl text-primary font-bold">contribute</h1>
+          <h1 class="text-4xl text-primary font-bold mb-2">contribute</h1>
           <p>Come help make this template even better, send a PR!</p>
         </div>
 
