@@ -105,7 +105,7 @@
             class="btn btn-primary my-2 flex-1"
           >
             <div class="flex items-center gap-2">
-              Use Template
+              use template
 
               <Icon icon="mdi-download" class="w-7 h-7" />
             </div>
@@ -116,7 +116,7 @@
             class="btn my-2 flex-1"
           >
             <div class="flex items-center gap-2">
-              Github
+              github
 
               <Icon icon="mdi-github" class="w-7 h-7" />
             </div>
@@ -125,12 +125,14 @@
       </div>
 
       <div class="">
-        <h1 class="text-3xl text-primary font-thin">About</h1>
+        <h1 class="text-4xl text-primary font-bold">about</h1>
         <p>
           <strong>Let's face it</strong>, we'd all like to build
-          <span class="font-bold uppercase italic">fast</span>, and there are
-          some things we need to implement 90% of time which are a hassle to set
-          up over and over again.
+          <span class="font-bold uppercase italic">fast</span>, but there are
+          some things we constantly find ourselves needing to set up before we
+          can tackle the problem we set out to solve. These tasks are often a
+          hassle to configure at the beginning of a project and even more so
+          when we try to implement them later during development.
         </p>
         <ul class="list-disc pl-10 pt-2">
           <li>User Authentication</li>
@@ -140,20 +142,20 @@
         </ul>
       </div>
       <p>
-        <span class="text-primary underline">spatz</span> is ready OTB to help you
-        build your next great idea.
+        <span class="text-primary underline">spatz</span> is ready, out of the box,
+        to help you build your next great idea.
       </p>
       <div>
-        <h1 class="text-3xl text-primary font-thin">Technologies</h1>
-        <div class="overflow-x-auto">
-          <table class="table">
+        <h1 class="text-4xl text-primary font-bold">technologies</h1>
+        <div class="overflow-x-auto card border border-primary rounded-lg p-2">
+          <table class="table card-body">
             <!-- head -->
             <tbody>
               <!-- row 1 -->
               <tr>
                 <td
                   ><a
-                    class="text-primary underline"
+                    class="text-primary md:hover:underline font-bold text-lg"
                     href="https://kit.svelte.dev">Sveltekit</a
                   ></td
                 >
@@ -164,7 +166,7 @@
               </tr><tr>
                 <td
                   ><a
-                    class="text-primary underline"
+                    class="text-primary md:hover:underline font-bold text-lg"
                     href="https://pocketbase.io">Pocketbase</a
                   ></td
                 >
@@ -173,8 +175,9 @@
               <!-- row 3 -->
               <tr>
                 <td
-                  ><a class="text-primary underline" href="https://openai.com"
-                    >AI</a
+                  ><a
+                    class="text-primary md:hover:underline font-bold text-lg"
+                    href="https://openai.com">AI</a
                   ></td
                 >
 
@@ -194,7 +197,7 @@
               <tr>
                 <td
                   ><a
-                    class="text-primary underline"
+                    class="text-primary md:hover:underline font-bold text-lg"
                     href="https://tailwindcss.com">TailwindCSS</a
                   ></td
                 >
@@ -202,15 +205,17 @@
                 <td
                   >Utility-first CSS styling with <a
                     href="https://daisyui.com"
-                    class="text-primary underline">DaisyUI</a
+                    class="text-primary md:hover:underline font-bold text-lg"
+                    >DaisyUI</a
                   >.</td
                 >
               </tr>
               <!-- row 5 -->
               <tr>
                 <td
-                  ><a class="text-primary underline" href="https://zod.dev"
-                    >Zod</a
+                  ><a
+                    class="text-primary md:hover:underline font-bold text-lg"
+                    href="https://zod.dev">Zod</a
                   ></td
                 >
 
@@ -224,17 +229,17 @@
       </div>
 
       <div>
-        <h1 class="text-3xl mb-5 text-primary font-thin">Getting Started</h1>
+        <h1 class="text-4xl mb-2 text-primary font-bold">getting started</h1>
         <a href={PUBLIC_DOCS_URL} class="btn btn-primary">
           <div class="flex items-center gap-2">
             <div>spatz docs</div>
             <Icon icon="mdi-github" class="w-7 h-7" />
           </div>
         </a>
-        <h1 class="text-xl mt-5">Sveltekit Config</h1>
+        <h1 class="text-xl font-bold mt-10">Sveltekit Config</h1>
         <p>Run the below commands to get started.</p>
 
-        <div class="mockup-code">
+        <div class="mockup-code my-2">
           <pre data-prefix="$"><code
               >git clone https://github.com/engageintellect/spatz</code
             ></pre>
@@ -255,10 +260,10 @@
 
       <div>
         <div>
-          <h1 class="text-xl">Pocketbase Config</h1>
+          <h1 class="text-xl font-bold">Pocketbase Config</h1>
           <p>1. Run the below commands to get started.</p>
 
-          <div class="mockup-code">
+          <div class="mockup-code my-2">
             <pre data-prefix="$"><code
                 >wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.9/pocketbase_0.22.9_linux_amd64.zip</code
               ></pre>
@@ -271,7 +276,7 @@
         <div>
           <p>2. Run the below commands to get started.</p>
 
-          <div class="mockup-code">
+          <div class="mockup-code my-2">
             <pre data-prefix="$"><code
                 >./pocketbase serve --http="0.0.0.0:8090"</code
               ></pre>
@@ -286,7 +291,7 @@
         </p>
         <p>
           3. Go to settings > Import collections, then paste in the contents of
-          ./pocketbase/
+          ./pocketbase/pb_schema.json
         </p>
 
         <p>
@@ -298,9 +303,9 @@
       </div>
 
       <div class="mb-10">
-        <div class="mb-5">
-          <h1 class="text-3xl text-primary font-thin">Contribute</h1>
-          <p>Come help make this template even better, sent a PR to:</p>
+        <div class="mb-2">
+          <h1 class="text-4xl text-primary font-bold">contribute</h1>
+          <p>Come help make this template even better, send a PR!</p>
         </div>
 
         <a
@@ -308,7 +313,7 @@
           class="btn btn-primary my-2 flex-1"
         >
           <div class="flex items-center gap-2">
-            Github
+            contibute on github
 
             <Icon icon="mdi-github" class="w-7 h-7" />
           </div>
