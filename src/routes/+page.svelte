@@ -24,20 +24,23 @@
           <div class="max-w-md flex gap-2">
             <a
               href="/auth/register"
-              class="btn btn-primary flex group items-center justify-between flex-1"
+              class="btn btn-primary flex group items-center justify-between flex-1 group/registerButton"
             >
               <div>let's build</div>
               <Icon
                 icon="material-symbols:rocket"
-                class="w-7 h-7 md:group-hover:scale-[105%] transition-all duration-500"
+                class="w-7 h-7 md:group-hover/registerButton:rotate-45 transition-transform duration-300"
               />
             </a>
             <a
               href="/auth/login"
-              class="btn btn-primary btn-outline flex-1 flex items-cetner justify-between"
+              class="btn btn-primary btn-outline flex-1 flex items-cetner justify-between group/loginButton"
             >
               <div>login</div>
-              <Icon icon="material-symbols:login" class="w-7 h-7" />
+              <Icon
+                icon="material-symbols:login"
+                class="w-7 h-7 md:group-hover/loginButton:translate-x-1 transition-transform duration-300"
+              />
             </a>
           </div>
         </div>
@@ -86,7 +89,9 @@
             class="tracking-tight text-primary font-extrabold flex items-center"
           >
             <div>spatz</div>
-            <div class="font-thin text-base-300 tracking-tighter">stack</div>
+            <div class="font-thin text-primary/[33%] tracking-tighter">
+              stack
+            </div>
           </div>
         </h1>
         <p class="mt-2">

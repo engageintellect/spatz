@@ -186,11 +186,14 @@
                   }
                 }}
               >
-                <button class="btn w-full">
+                <button class="btn w-full group/logoutButton">
                   <div class="flex w-full items-center justify-between">
                     <div class="font-bold">Logout</div>
 
-                    <Icon icon="mdi-logout" class="w-5 h-5" />
+                    <Icon
+                      icon="mdi-logout"
+                      class="w-5 h-5 md:group-hover/logoutButton:translate-x-1 transition-all duration-300"
+                    />
                   </div>
                 </button>
               </form>

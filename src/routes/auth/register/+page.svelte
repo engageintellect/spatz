@@ -1,6 +1,7 @@
 <script lang="ts">
   import { applyAction, enhance } from '$app/forms'
   import Input from '$lib/components/Input.svelte'
+  import Icon from '@iconify/svelte'
   export let form
   let loading = false
   import { fade } from 'svelte/transition'
@@ -55,9 +56,12 @@
       placeholder={'Confirm Password'}
     />
 
-    <div class="alert mb-2 text-sm">
-      Your password will be encrypted for your safety, it will not be readable
-      by anyone.
+    <div class="alert border border-primary mb-2 text-sm flex">
+      <Icon icon="material-symbols:encrypted" class="w-10 h-10 text-primary" />
+      <div>
+        Your password will be encrypted for your safety, it will not be readable
+        by anyone.
+      </div>
     </div>
     <button class="btn btn-primary">
       {#if loading}
