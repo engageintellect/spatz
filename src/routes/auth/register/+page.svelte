@@ -10,7 +10,7 @@
 <form
   action="?/register"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto"
+  class="card sm:max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
   use:enhance={() => {
     return async ({ result }) => {
       if (result.type === 'redirect') {
@@ -58,7 +58,7 @@
 
     <div class="alert border border-primary mb-2 text-sm flex">
       <Icon icon="material-symbols:encrypted" class="w-10 h-10 text-primary" />
-      <div>
+      <div class="text-left">
         Your password will be encrypted for your safety, it will not be readable
         by anyone.
       </div>
