@@ -71,13 +71,31 @@ pnpm i && pnpm run dev --host
 - /src
   - /lib
     - /assets
+      - /images
     - /components
-    - /stores
+    - /stores (global state)
   - /routes
-    - /ai
+    - /ai (nested routes)
+      - /a
+      - /b
+      - /c
     - /api
-    - /auth
-    - /my
+      - /chat (OpenAI)
+    - /auth (Pocketbase auth)
+      - /login
+      - /register
+      - /logout
+      - /reset-password
+    - /my (user-specific routes)
+      - /account
+      - /profile
+      - /settings
 - /pocketbase
+  - pb_schema.json
 - /static
-- /docs
+- /docs (general documentation)
+
+### Icons
+
+Icons are provided by [iconify/svelte](https://www.npmjs.com/package/@iconify/svelte).
+You can search for icons on [Icones](https://icones.js.org/collection/all).
