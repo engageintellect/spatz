@@ -68,28 +68,29 @@ pnpm i && pnpm run dev --host
 
 ### Project Structure
 
-- /src
-  - /lib
-    - /assets
-      - /images
-    - /components
-    - /stores (global state)
-  - /routes
-    - /ai (nested routes)
-      - /a
-      - /b
-      - /c
-    - /api
-      - /chat (OpenAI streaming API)
-    - /auth (Pocketbase auth)
-      - /login
-      - /register
-      - /logout
-      - /reset-password
-    - /my (user-specific routes)
-      - /account
-      - /profile
-      - /settings
+/src
+
+- /lib
+  - /assets
+    - /images
+  - /components
+  - /stores (global state)
+- /routes
+  - /ai (nested routes)
+    - /a
+    - /b
+    - /c
+  - /api
+    - /chat (OpenAI streaming API)
+  - /auth (Pocketbase auth)
+    - /login
+    - /register
+    - /logout
+    - /reset-password
+  - /my (user-specific routes)
+    - /account
+    - /profile
+    - /settings
 - /pocketbase
   - pb_schema.json
 - /static
