@@ -1,36 +1,14 @@
 <script lang="ts">
   import Post from '$lib/components/Post.svelte'
   import { slide, fade } from 'svelte/transition'
-  import { applyAction, enhance } from '$app/forms'
+  import { enhance } from '$app/forms'
   import TextArea from '$lib/components/TextArea.svelte'
   export let form
   let loading = false
   import Icon from '@iconify/svelte'
+  import { invalidateAll } from '$app/navigation'
 
   export let data
-  export let posts: any = []
-
-  const fetchData = async () => {
-    const res = await fetch('/api/getPosts')
-    const posts = await res.json()
-    return posts
-  }
-
-  let formElement: HTMLFormElement
-
-  const handleSuccess = async (result: any) => {
-    if (result.result.type === 'success') {
-      await applyAction(result)
-      posts = await fetchData()
-      formElement.reset()
-      const textareaElement = formElement.querySelector('textarea')
-      if (textareaElement instanceof HTMLTextAreaElement) {
-        textareaElement.focus()
-      }
-    } else {
-      await applyAction(result)
-    }
-  }
 </script>
 
 <div class="max-w-md mx-auto w-full transition-all duration-300">
@@ -40,12 +18,11 @@
 
   <div class="flex flex-col gap-5 my-2">
     <form
-      bind:this={formElement}
       action="?/createPost"
       method="POST"
       class="w-full"
       use:enhance={() => {
-        return handleSuccess
+        invalidateAll()
       }}
     >
       <div class="form-control gap-0">
@@ -76,17 +53,8 @@
       <div class="">
         <div class="text-3xl">POSTS</div>
         <div in:slide={{ duration: 500 }} class="flex flex-col gap-2">
-          {#if posts.length === 0}
+          {#if data.posts.length > 0}
             {#each data.posts as post}
-              <Post
-                user={post.username}
-                postContent={post.content}
-                postDate={post.created}
-              />
-            {/each}
-          {/if}
-          {#if posts.length > 0}
-            {#each posts as post}
               <Post
                 user={post.username}
                 postContent={post.content}
