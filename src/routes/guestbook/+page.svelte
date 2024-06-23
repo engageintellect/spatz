@@ -52,7 +52,7 @@
     <div class="w-full">
       <div class="">
         <div class="text-3xl">POSTS</div>
-        <div in:slide={{ duration: 500 }} class="flex flex-col gap-2">
+        <div in:fade={{ duration: 700 }} class="flex flex-col gap-2">
           {#if data.posts.length > 0}
             {#each data.posts as post}
               <Post
