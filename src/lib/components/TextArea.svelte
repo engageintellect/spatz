@@ -10,7 +10,7 @@
 <div class="form-control w-full mb-2">
   <textarea
     autofocus
-    class="textarea textarea-bordered textarea-md w-full focus-within:outline-none"
+    class="textarea textarea-bordered textarea-md w-full focus-within:outline-none shadow-inner focus:shadow-inner"
     {placeholder}
     {required}
     {disabled}

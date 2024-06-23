@@ -78,7 +78,7 @@
     <div class="w-full">
       <div class="">
         <div class="text-3xl">POSTS</div>
-        <div in:slide={{ duration: 500 }} class="flex flex-col gap-2">
+        <div in:slide={{ duration: 1000 }} class="flex flex-col gap-2">
           {#if postsWithUsernames.length > 0}
             {#each postsWithUsernames as post}
               <Post
