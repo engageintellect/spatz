@@ -36,7 +36,7 @@
           placeholder={''}
         />
 
-        <button class="btn btn-primary group/submitButton">
+        <button class="btn text-lg btn-primary group/submitButton">
           {#if loading}
             <span class="loading loading-spinner loading-md"></span>
           {:else}
