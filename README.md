@@ -80,7 +80,7 @@ pnpm i && pnpm run dev --host
       - /b
       - /c
     - /api
-      - /chat (OpenAI)
+      - /chat (OpenAI streaming API)
     - /auth (Pocketbase auth)
       - /login
       - /register
