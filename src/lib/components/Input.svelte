@@ -9,9 +9,6 @@
 </script>
 
 <div class="form-control w-full mb-2">
-  <!-- <label for={id} class="label font-medium pb-1"> -->
-  <!-- <span class="label-text">{label}</span> -->
-  <!-- </label> -->
   <input
     class={type === 'file'
       ? 'file-input file-input-bordered w-full'

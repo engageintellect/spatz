@@ -4,7 +4,6 @@
   import Icon from '@iconify/svelte'
   export let form
   let loading = false
-  import { fade } from 'svelte/transition'
 </script>
 
 <form

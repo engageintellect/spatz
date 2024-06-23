@@ -1,7 +1,6 @@
 <script lang="ts">
   import { applyAction, enhance } from '$app/forms'
   export let form
-  import { fade } from 'svelte/transition'
   import Icon from '@iconify/svelte'
 
   let loading = false
@@ -36,10 +35,6 @@
     />
   </div>
   <div class="w-full">
-    <!-- <button type="submit" class="btn btn-primary w-full"
-      >Request Password Reset</button
-    > -->
-
     <button type="submit" class="btn btn-primary group/loginButton w-full">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>

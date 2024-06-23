@@ -63,3 +63,21 @@ pnpm i && pnpm run dev --host
 ```
 
 4. Open your browser to `http://localhost:5173` to see the app.
+
+## Development
+
+### Project Structure
+
+- /src
+  - /lib
+    - /assets
+    - /components
+    - /stores
+  - /routes
+    - /ai
+    - /api
+    - /auth
+    - /my
+- /pocketbase
+- /static
+- /docs
