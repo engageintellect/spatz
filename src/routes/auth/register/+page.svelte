@@ -10,7 +10,7 @@
 <form
   action="?/register"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
+  class="card max-w-sm sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
   use:enhance={() => {
     return async ({ result }) => {
       if (result.type === 'redirect') {
@@ -22,7 +22,7 @@
     }
   }}
 >
-  <div class="mb-5">
+  <div class="mb-2">
     <h1 class="text-7xl">register</h1>
     <p class=" pt-2">
       Or <a href="/auth/login" class="underline text-primary">login</a> if you have
@@ -63,11 +63,15 @@
         by anyone.
       </div>
     </div>
-    <button class="btn btn-primary">
+
+    <button class="btn btn-primary group/registerButton">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>
       {:else}
-        register
+        register <Icon
+          icon="mdi-account-plus"
+          class="w-5 h-5 md:group-hover/registerButton:translate-x-1 transition-all duration-300"
+        />
       {/if}
     </button>
   </div>

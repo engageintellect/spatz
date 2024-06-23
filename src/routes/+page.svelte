@@ -2,7 +2,6 @@
   import { PUBLIC_DOCS_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
-  import { fade } from 'svelte/transition'
 </script>
 
 <div class="">
@@ -47,10 +46,7 @@
       </div>
     </div>
 
-    <div
-      transition:fade={{ duration: 500 }}
-      class="mockup-browser border border-base-300 shadow-xl mt-5"
-    >
+    <div class="mockup-browser border border-base-300 shadow-xl mt-5">
       <div class="mockup-browser-toolbar">
         <div class="bg-base-300 px-2 py-1 w-full card">
           <div class="flex items-center gap-1">

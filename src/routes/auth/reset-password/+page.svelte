@@ -1,14 +1,28 @@
 <script lang="ts">
+  import { applyAction, enhance } from '$app/forms'
   export let form
   import { fade } from 'svelte/transition'
+  import Icon from '@iconify/svelte'
+
+  let loading = false
 </script>
 
 <form
   action="?/resetPassword"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
+  class="card max-w-sm sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
+  use:enhance={() => {
+    return async ({ result }) => {
+      if (result.type === 'redirect') {
+        loading = true
+        await applyAction(result)
+      } else {
+        await applyAction(result)
+      }
+    }
+  }}
 >
-  <div class="mb-5">
+  <div class="mb-2">
     <h1 class="text-7xl">reset password</h1>
 
     <p class="pt-2">Request a password reset link to be e-mailed to you.</p>
@@ -22,9 +36,20 @@
     />
   </div>
   <div class="w-full">
-    <button type="submit" class="btn btn-primary w-full"
+    <!-- <button type="submit" class="btn btn-primary w-full"
       >Request Password Reset</button
-    >
+    > -->
+
+    <button type="submit" class="btn btn-primary group/loginButton w-full">
+      {#if loading}
+        <span class="loading loading-spinner loading-md"></span>
+      {:else}
+        request password reset <Icon
+          icon="mdi-lock-reset"
+          class="w-5 h-5 md:group-hover/loginButton:translate-x-1 transition-all duration-300"
+        />
+      {/if}
+    </button>
   </div>
 
   {#if form?.success}

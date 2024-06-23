@@ -11,6 +11,23 @@
   import { onMount } from 'svelte'
   import type { PageData } from './$types'
 
+  // START VIEW TRANSITIONS API
+  import { onNavigate } from '$app/navigation'
+
+  onNavigate((navigation) => {
+    // @ts-ignore
+    if (!document.startViewTransition) return
+
+    return new Promise((resolve) => {
+      // @ts-ignore
+      document.startViewTransition(async () => {
+        resolve()
+        await navigation.complete
+      })
+    })
+  })
+  // END VIEW TRANSITIONS API
+
   export let data: PageData
 
   let themes = Object.keys(daisyuiColors)
@@ -43,7 +60,7 @@
   <div class="bg-base-100 text-neutral-content">
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
-        <a href={$currentUser ? '/' : ''} class="btn btn-primary text-xl"
+        <a href={$currentUser ? '/' : '/'} class="btn btn-primary text-xl"
           >spatz</a
         >
       </div>

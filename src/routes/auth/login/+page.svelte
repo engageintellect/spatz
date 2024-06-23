@@ -1,17 +1,15 @@
 <script lang="ts">
   import { applyAction, enhance } from '$app/forms'
-  import { goto } from '$app/navigation'
   import Input from '$lib/components/Input.svelte'
-  import { redirect } from '@sveltejs/kit'
   export let form
   let loading = false
-  import { fade } from 'svelte/transition'
+  import Icon from '@iconify/svelte'
 </script>
 
 <form
   action="?/login"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto"
+  class="card max-w-sm sm:mt-10 mx-auto"
   use:enhance={() => {
     return async ({ result }) => {
       if (result.type === 'redirect') {
@@ -23,7 +21,7 @@
     }
   }}
 >
-  <div class="mb-5">
+  <div class="mb-2">
     <h1 class="text-7xl">login</h1>
     <p class="pt-2">
       Or <a href="/auth/register" class="underline text-primary">register</a> to
@@ -56,11 +54,14 @@
       >
     </div>
 
-    <button class="btn btn-primary">
+    <button class="btn btn-primary group/loginButton">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>
       {:else}
-        login
+        login <Icon
+          icon="mdi-login"
+          class="w-5 h-5 md:group-hover/loginButton:translate-x-1 transition-all duration-300"
+        />
       {/if}
     </button>
   </div>
