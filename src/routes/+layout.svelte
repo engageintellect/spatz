@@ -35,17 +35,30 @@
   $: currentUser.set(data.user)
 
   onMount(() => {
-    const storedTheme = localStorage.getItem('selectedTheme')
-    if (storedTheme && themes.includes(storedTheme)) {
-      selectedTheme.set(storedTheme)
-      document.documentElement.setAttribute('data-theme', storedTheme)
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('selectedTheme') ?? 'default'
+      if (themes.includes(storedTheme)) {
+        selectedTheme.set(storedTheme)
+        document.documentElement.setAttribute('data-theme', storedTheme)
+      }
+
+      // Subscribe to theme changes and update the attribute
+      const unsubscribe = selectedTheme.subscribe((theme) => {
+        document.documentElement.setAttribute('data-theme', theme)
+      })
+
+      return () => {
+        unsubscribe()
+      }
     }
   })
 
   function handleThemeChange(event: any) {
     const theme = event.target.value
     selectedTheme.set(theme)
-    localStorage.setItem('selectedTheme', theme)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedTheme', theme)
+    }
   }
 
   function handleLogout() {
@@ -97,6 +110,7 @@
                     aria-label={theme}
                     value={theme}
                     on:change={handleThemeChange}
+                    checked={theme === $selectedTheme}
                   />
                 </li>
               {/each}
@@ -142,6 +156,19 @@
                     >{$currentUser?.username}</a
                   >
                 </div>
+              </li>
+
+              <li>
+                <a href="/guestbook">
+                  <div class="flex gap-2 items-center font-bold">
+                    <Icon
+                      icon="fluent-emoji-high-contrast:ledger"
+                      class="w-5 h-5"
+                    />
+                    <div>Guestbook</div>
+                    <div class="badge badge-accent">new</div>
+                  </div>
+                </a>
               </li>
 
               <li>
