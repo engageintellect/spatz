@@ -79,13 +79,19 @@
       <div class="">
         <div class="text-3xl">POSTS</div>
         <div in:slide={{ duration: 500 }} class="flex flex-col gap-2">
-          {#each postsWithUsernames as post}
-            <Post
-              user={post.username}
-              postContent={post.content}
-              postDate={post.created}
-            />
-          {/each}
+          {#if postsWithUsernames.length > 0}
+            {#each postsWithUsernames as post}
+              <Post
+                user={post.username}
+                postContent={post.content}
+                postDate={post.created}
+              />
+            {/each}
+          {:else}
+            <div class="alert alert-warning">
+              <div>No posts yet.</div>
+            </div>
+          {/if}
         </div>
       </div>
     </div>
