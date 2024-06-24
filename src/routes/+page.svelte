@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_DOCS_URL } from '$env/static/public'
+  import { PUBLIC_DOCS_URL, PUBLIC_REPOSITORY_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
 </script>
@@ -145,8 +145,8 @@
         </ul>
       </div>
       <p>
-        <span class="text-primary underline">spatz</span> is ready, out of the box,
-        to help you build your next great idea.
+        <a href={PUBLIC_REPOSITORY_URL} class="text-primary underline">spatz</a>
+        is ready, out of the box, to help you build your next great idea.
       </p>
       <div>
         <h1 class="text-4xl text-primary font-bold mb-2">technologies</h1>
@@ -210,8 +210,7 @@
                 <td
                   >Utility-first CSS styling with <a
                     href="https://daisyui.com"
-                    class="text-primary md:hover:underline font-bold text-lg"
-                    >DaisyUI</a
+                    class="text-primary underline">DaisyUI</a
                   >.</td
                 >
               </tr>
