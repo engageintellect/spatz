@@ -55,8 +55,12 @@ cd spatz
 2. Set your Pocketbase URL and OpenAI API key in a `.env.local` file.
 
 ```bash
-touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local
-touch 'OPENAI_API_KEY=<YOUR API KEY>' >> .env.local
+touch 'PUBLIC_POCKETBASE_URL=YOUR_POCKETBASE_URL' >> .env.local
+touch 'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' >> .env.local
+touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local
+touch 'PUBLIC_DOCS_URL=YOUR_DOCS_URL' >> .env.local
+touch 'PUBLIC_GITHUB_STARS_URL=YOUR_PUBLIC_GITHUB_STARS_URL' >> .env.local
+touch 'PUBLIC_BASE_URL=YOUR_BASE_URL' >> .env.local
 ```
 
 3. Install the dependencies and start the development server.
