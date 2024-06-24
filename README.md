@@ -79,11 +79,13 @@ pnpm i && pnpm run dev --host
 ├── /components
 ├── /stores (global state)
 ├── /routes
+│   ├── /guestbook
 │   ├── /ai (nested routes)
 │   │   ├── /a
 │   │   ├── /b
 │   │   └── /c
 │   ├── /api
+│   │   ├── /getStars (fetch github repository stars)
 │   │   ├── /chat (OpenAI streaming API)
 │   │   └── /auth (Pocketbase auth)
 │   │       ├── /login
