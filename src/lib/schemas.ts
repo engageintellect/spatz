@@ -142,3 +142,11 @@ export const updateProfileSchema = z.object({
 			}
 		})
 });
+
+export const createGuestBookPostSchema = z.object({
+  author: z.string(), // Hidden input field
+  content: z
+    .string({ required_error: 'Text area content is required' })
+    .min(1, { message: 'Text area content cannot be empty.' })
+    .max(250, { message: 'Text area content cannot exceed 250 characters.' })
+});

@@ -26,3 +26,19 @@ export const validateData = async (formData:any, schema:any) => {
 		};
 	}
 };
+
+export function formatFriendlyDate(dateString: string): string {
+	const date = new Date(dateString);
+
+	const options: Intl.DateTimeFormatOptions = {
+			weekday: 'short',
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric',
+	};
+
+	return new Intl.DateTimeFormat('en-US', options).format(date);
+}
+

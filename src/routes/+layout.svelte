@@ -35,17 +35,28 @@
   $: currentUser.set(data.user)
 
   onMount(() => {
-    const storedTheme = localStorage.getItem('selectedTheme')
-    if (storedTheme && themes.includes(storedTheme)) {
-      selectedTheme.set(storedTheme)
-      document.documentElement.setAttribute('data-theme', storedTheme)
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('selectedTheme') ?? 'default'
+      if (themes.includes(storedTheme)) {
+        selectedTheme.set(storedTheme)
+        document.documentElement.setAttribute('data-theme', storedTheme)
+      }
+      // Subscribe to theme changes and update the attribute
+      const unsubscribe = selectedTheme.subscribe((theme) => {
+        document.documentElement.setAttribute('data-theme', theme)
+      })
+      return () => {
+        unsubscribe()
+      }
     }
   })
 
   function handleThemeChange(event: any) {
     const theme = event.target.value
     selectedTheme.set(theme)
-    localStorage.setItem('selectedTheme', theme)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedTheme', theme)
+    }
   }
 
   function handleLogout() {
@@ -57,7 +68,7 @@
 <Toaster />
 
 <div class="h-full min-h-screen">
-  <div class="bg-base-100 text-neutral-content">
+  <div class="bg-base-100 text-neutral-content sticky top-0 z-50 shadow">
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
         <a href={$currentUser ? '/' : '/'} class="btn btn-primary text-xl"
@@ -97,6 +108,7 @@
                     aria-label={theme}
                     value={theme}
                     on:change={handleThemeChange}
+                    checked={theme === $selectedTheme}
                   />
                 </li>
               {/each}
@@ -142,6 +154,19 @@
                     >{$currentUser?.username}</a
                   >
                 </div>
+              </li>
+
+              <li>
+                <a href="/guestbook">
+                  <div class="flex gap-2 items-center font-bold">
+                    <Icon
+                      icon="fluent-emoji-high-contrast:ledger"
+                      class="w-5 h-5"
+                    />
+                    <div>Guestbook</div>
+                    <div class="badge badge-accent">new</div>
+                  </div>
+                </a>
               </li>
 
               <li>
@@ -223,23 +248,23 @@
     </div>
   </div>
 
-  <div class="max-w-2xl mx-auto p-2 w-full">
+  <div class="max-w-2xl p-2 mx-auto w-full">
     <slot />
   </div>
 
-  <footer
-    class="footer footer-center rounded bg-base-100 p-5 text-base-content"
-  >
-    <nav class="flex justify-center">
-      <div class="flex gap-1">
-        <div>Made with</div>
-        <div><Icon icon="mdi:heart" class="h-5 w-5 text-red-500" /></div>
-        by
-        <a
-          href="https://github.com/engageintellect"
-          class="link-hover link underline">@engageintellect</a
-        >
-      </div>
-    </nav>
+  <footer class="footer footer-center rounded bg-base-100 text-base-content">
+    <div class="max-w-2xl mx-auto w-full">
+      <nav class="flex justify-center p-5">
+        <div class="flex gap-1">
+          <div>Made with</div>
+          <div><Icon icon="mdi:heart" class="h-5 w-5 text-red-500" /></div>
+          by
+          <a
+            href="https://github.com/engageintellect"
+            class="link-hover link underline">@engageintellect</a
+          >
+        </div>
+      </nav>
+    </div>
   </footer>
 </div>
