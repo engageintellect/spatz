@@ -141,6 +141,7 @@
           <li>Themes & Styling</li>
           <li>Forms</li>
           <li>Form Validation</li>
+          <li>Toast Notifications</li>
           <li>Icons</li>
         </ul>
       </div>
