@@ -29,7 +29,7 @@
           class="tracking-tight text-primary font-extrabold flex items-center"
         >
           <div>spatz</div>
-          <div class="font-thin text-primary/[33%] tracking-tighter">stack</div>
+          <div class="font-thin text-primary/[50%] tracking-tighter">stack</div>
         </div>
       </h1>
       <p class="mt-2">
