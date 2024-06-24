@@ -80,7 +80,7 @@
           <div class="dropdown dropdown-end">
             <div tabindex="0" role="button">
               <div class="lg:tooltip lg:tooltip-left" data-tip="Theme Selector">
-                <button class="btn btn-ghost">
+                <button class="btn btn-ghost" name="theme-toggle">
                   <div class="font-normal lowercase">
                     <Icon icon="gridicons-themes" class="h-6 w-6" />
                   </div>
