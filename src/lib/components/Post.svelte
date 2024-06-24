@@ -7,7 +7,9 @@
   import { formatFriendlyDate } from '$lib/utils'
 </script>
 
-<div class="card shadow-lg hover:border-primary border-[0.5px] border-base-300">
+<div
+  class="card shadow-lg hover:border-primary border-[0.5px] border-base-300 md:hover:scale-[101%] transition-all duration-300 cursor-pointer"
+>
   <div class="card-body p-5 transition-none">
     <div class="text-sm">{formatFriendlyDate(postDate)}</div>
 

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Post from '$lib/components/Post.svelte'
   import { fade, slide } from 'svelte/transition'
   import { enhance } from '$app/forms'
-  import TextArea from '$lib/components/TextArea.svelte'
-  import Icon from '@iconify/svelte'
   import { invalidateAll } from '$app/navigation'
   import { currentUser } from '$lib/stores/user.js'
   import { getImageURL } from '$lib/utils'
   import { onMount } from 'svelte'
+  import Post from '$lib/components/Post.svelte'
+  import TextArea from '$lib/components/TextArea.svelte'
+  import Icon from '@iconify/svelte'
 
   export let form
   export let data
@@ -103,7 +103,7 @@
 >
   <div class="flex w-full justify-end">
     <button
-      class="btn btn-primary mx-6 sm:mx-3"
+      class="btn btn-primary mx-6 sm:mx-3 shadow"
       class:opacity-0={!showScrollToTop}
       class:opacity-100={showScrollToTop}
       on:click={scrollToTop}
