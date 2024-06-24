@@ -71,16 +71,27 @@
   <div class="bg-base-100 text-neutral-content sticky top-0 z-50 shadow">
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
-        <a href={$currentUser ? '/' : '/'} class="btn btn-primary text-xl"
-          >spatz</a
+        <a
+          href={$currentUser ? '/' : '/'}
+          class="btn btn-primary text-xl"
+          aria-label="Home">spatz</a
         >
       </div>
       <div class="flex-none gap-2">
         {#if $currentUser}
           <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button">
+            <div
+              tabindex="0"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               <div class="lg:tooltip lg:tooltip-left" data-tip="Theme Selector">
-                <button class="btn btn-ghost" name="theme-toggle">
+                <button
+                  class="btn btn-ghost"
+                  name="theme-toggle"
+                  aria-label="Toggle Theme Selector"
+                >
                   <div class="font-normal lowercase">
                     <Icon icon="gridicons-themes" class="h-6 w-6" />
                   </div>
@@ -90,9 +101,11 @@
             <ul
               tabindex="-1"
               class="dropdown-content dropdown-end rounded-box border-primary bg-base-100 z-50 mt-3 h-96 w-52 overflow-auto border p-2 shadow"
+              aria-label="Theme Selector Menu"
             >
               <li
                 class="sticky top-0 theme-controller text-primary-content btn btn-primary btn-sm btn-block justify-start font-medium mb-2"
+                aria-label={`Current Theme: ${$selectedTheme}`}
               >
                 <div class="flex items-center gap-2">
                   <Icon icon="mdi-done" class="w-5 h-5" />
@@ -120,6 +133,9 @@
               tabindex="0"
               role="button"
               class="btn btn-primary btn-circle avatar flex items-center justify-center"
+              aria-label="User Menu"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               <div class="h-full w-full rounded-full">
                 {#if $currentUser?.avatar}
@@ -136,7 +152,7 @@
                 {:else}
                   <Icon
                     icon="mdi-account-circle"
-                    class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100 "
+                    class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100"
                   />
                 {/if}
               </div>
@@ -145,19 +161,24 @@
             <ul
               tabindex="-1"
               class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-52 border border-primary mt-3 z-50"
+              aria-label="User Menu"
             >
               <li class="mb-5">
                 <div
                   class="bg-primary hover:bg-primary text-primary-content w-full truncate"
                 >
-                  <a href="/my/settings/profile" class="truncate font-bold"
-                    >{$currentUser?.username}</a
+                  <a
+                    href="/my/settings/profile"
+                    class="truncate font-bold"
+                    aria-label="Profile Settings"
                   >
+                    {$currentUser?.username}
+                  </a>
                 </div>
               </li>
 
               <li>
-                <a href="/guestbook">
+                <a href="/guestbook" aria-label="Guestbook">
                   <div class="flex gap-2 items-center font-bold">
                     <Icon
                       icon="fluent-emoji-high-contrast:ledger"
@@ -170,7 +191,7 @@
               </li>
 
               <li>
-                <a href="/ai/chat">
+                <a href="/ai/chat" aria-label="AI Chat">
                   <div class="flex gap-2 items-center font-bold">
                     <Icon icon="simple-icons:openai" class="w-5 h-5" />
                     <div>AI</div>
@@ -183,6 +204,7 @@
                 <a
                   href={`${PUBLIC_POCKETBASE_URL}/_/`}
                   class="font-bold flex items-center gap-2"
+                  aria-label="PocketBase"
                 >
                   <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
                   <div>PocketBase</div>
@@ -193,6 +215,7 @@
                 <a
                   href="/my/settings/profile"
                   class="font-bold flex items-center gap-2"
+                  aria-label="Profile"
                 >
                   <Icon icon="mdi-user" class="w-5 h-5" />
                   <div>Profile</div>
@@ -202,6 +225,7 @@
                 <a
                   href="/my/settings/account"
                   class="font-bold flex items-center gap-2"
+                  aria-label="Account Settings"
                 >
                   <Icon icon="mdi-grid" class="w-5 h-5" />
                   <div>Account</div>
@@ -211,6 +235,7 @@
                 <a
                   href="/my/settings/security"
                   class="font-bold flex items-center gap-2"
+                  aria-label="Security Settings"
                 >
                   <Icon icon="mdi-gear" class="w-5 h-5" />
                   <div>Settings</div>
@@ -222,11 +247,14 @@
                 method="POST"
                 action="/auth/logout"
                 on:submit={handleLogout}
+                aria-label="Logout"
               >
-                <button class="btn w-full group/logoutButton">
+                <button
+                  class="btn w-full group/logoutButton"
+                  aria-label="Logout"
+                >
                   <div class="flex w-full items-center justify-between">
                     <div class="font-bold">Logout</div>
-
                     <Icon
                       icon="mdi-logout"
                       class="w-5 h-5 md:group-hover/logoutButton:translate-x-1 transition-all duration-300"
@@ -238,9 +266,17 @@
           </div>
         {:else}
           <div class="flex items-center text-sm">
-            <div><a href="/auth/login" class="btn btn-ghost">Log in</a></div>
             <div>
-              <a href="/auth/register" class="btn btn-ghost">Register</a>
+              <a href="/auth/login" class="btn btn-ghost" aria-label="Log in"
+                >Log in</a
+              >
+            </div>
+            <div>
+              <a
+                href="/auth/register"
+                class="btn btn-ghost"
+                aria-label="Register">Register</a
+              >
             </div>
           </div>
         {/if}
@@ -257,11 +293,18 @@
       <nav class="flex justify-center p-5">
         <div class="flex gap-1">
           <div>Made with</div>
-          <div><Icon icon="mdi:heart" class="h-5 w-5 text-red-500" /></div>
+          <div>
+            <Icon
+              icon="mdi:heart"
+              class="h-5 w-5 text-red-500"
+              aria-label="Love"
+            />
+          </div>
           by
           <a
             href="https://github.com/engageintellect"
-            class="link-hover link underline">@engageintellect</a
+            class="link-hover link underline"
+            aria-label="GitHub profile">@engageintellect</a
           >
         </div>
       </nav>
