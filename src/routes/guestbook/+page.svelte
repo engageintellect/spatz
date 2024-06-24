@@ -17,6 +17,7 @@
 <div class="max-w-md mx-auto w-full transition-all duration-300">
   <div class="">
     <h1 class="text-7xl">guestbook</h1>
+        <!-- <div class="text-3xl font-thin mb-2">guestbook</div> -->
   </div>
 
   <div class="flex flex-col gap-5 my-2">
@@ -54,7 +55,7 @@
 
     <div class="w-full">
       <div class="">
-        <div class="text-3xl">POSTS</div>
+        <div class="text-3xl font-thin mb-2">posts</div>
         <div in:fade={{ duration: 700 }} class="flex flex-col gap-2">
           <!-- {JSON.stringify(data.posts)} -->
           {#if data.posts.length > 0}

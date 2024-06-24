@@ -6,6 +6,7 @@
   export let disabled = false
   export let required = false
   export let errors: any
+  export let autoFocus = false
 </script>
 
 <div class="form-control w-full mb-2">
@@ -20,6 +21,7 @@
     {id}
     name={id}
     {value}
+    autofocus={autoFocus ? true : false}
   />
   {#if errors}
     {#each errors as error}

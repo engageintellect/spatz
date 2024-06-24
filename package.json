@@ -1,6 +1,6 @@
 {
   "name": "spatz",
-  "version": "0.0.1",
+  "version": "0.5.1",
   "private": true,
   "scripts": {
     "dev": "vite dev",

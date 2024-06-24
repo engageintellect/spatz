@@ -31,6 +31,7 @@
 
   <div class="form-control gap-0 mb-4">
     <Input
+      autoFocus={true}
       type="email"
       id="email"
       value={form?.data?.email ?? ''}
@@ -38,6 +39,7 @@
       placeholder={'Email'}
     />
     <Input
+      autoFocus={false}
       type="password"
       id="password"
       value={form?.data?.password ?? ''}
