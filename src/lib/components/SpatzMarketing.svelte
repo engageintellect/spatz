@@ -198,16 +198,31 @@
             ></pre>
           <pre data-prefix="$"><code>cd spatz</code></pre>
           <pre data-prefix="$"><code
-              >touch 'PUBLIC_POCKETBASE_URL=http://localhost:8090' > .env.local</code
+              >touch 'PUBLIC_POCKETBASE_URL=YOUR_POCKETBASE_URL' >> .env.local</code
             ></pre>
 
           <pre data-prefix="$"><code
-              >touch 'PUBLIC_REPOSITORY_URL=https://github.com/engageintellect/spatz' >> .env.local</code
+              >touch 'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' >> .env.local</code
+            ></pre>
+
+          <pre data-prefix="$"><code
+              >touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local</code
+            ></pre>
+
+          <pre data-prefix="$"><code
+              >touch 'PUBLIC_DOCS_URL=YOUR_DOCS_URL' >> .env.local</code
+            ></pre>
+
+          <pre data-prefix="$"><code
+              >touch 'PUBLIC_GITHUB_STARS_URL=YOUR_PUBLIC_GITHUB_STARS_URL' >> .env.local</code
+            ></pre>
+
+          <pre data-prefix="$"><code
+              >touch 'PUBLIC_BASE_URL=YOUR_BASE_URL' >> .env.local</code
             ></pre>
           <pre data-prefix="$"><code
-              >touch 'OPENAI_API_KEY=YOUR API KEY' >> .env.local</code
+              >pnpm i && pnpm run dev --host' >> .env.local</code
             ></pre>
-          <pre data-prefix="$"><code>pnpm i && pnpm run dev --host</code></pre>
         </div>
       </div>
 
