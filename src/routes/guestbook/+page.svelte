@@ -3,15 +3,17 @@
   import { fade, slide } from 'svelte/transition'
   import { enhance } from '$app/forms'
   import TextArea from '$lib/components/TextArea.svelte'
-  export let form
-  let loading = false
   import Icon from '@iconify/svelte'
   import { invalidateAll } from '$app/navigation'
   import { currentUser } from '$lib/stores/user.js'
   import { getImageURL } from '$lib/utils'
   import { onMount } from 'svelte'
 
+  export let form
   export let data
+
+  let loading = false
+
   $: currentUser.set(data.user)
 
   let showScrollToTop = false
@@ -66,7 +68,7 @@
     </form>
 
     <div class="w-full">
-      <div in:slide={{ delay: 700, duration: 500 }} class="">
+      <div in:slide={{ delay: 700, duration: 1000 }} class="">
         <div class="text-3xl font-thin mb-2">posts</div>
         <div class="flex flex-col gap-2">
           {#if data.posts.length > 0}
