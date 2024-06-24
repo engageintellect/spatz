@@ -26,13 +26,7 @@ export const load: PageServerLoad = async ({ locals }) => {
     });
     // ADD AUTHORS USERNAME TO POST OBJECT
     const transformedPosts = posts.map(post => ({
-        id: post.id,
-        author: post.author,
-        content: post.content,
-        collectionId: post.collectionId,
-        collectionName: post.collectionName,
-        created: post.created,
-        updated: post.updated,
+				...post,
         username: users.find(user => user.id === post.author)?.username,
 				avatar: users.find(user => user.id === post.author)?.avatar
     }));

@@ -248,23 +248,23 @@
     </div>
   </div>
 
-  <div class="max-w-2xl mx-auto p-2 w-full">
+  <div class="max-w-2xl p-2 mx-auto w-full">
     <slot />
   </div>
 
-  <footer
-    class="footer footer-center rounded bg-base-100 p-5 text-base-content"
-  >
-    <nav class="flex justify-center">
-      <div class="flex gap-1">
-        <div>Made with</div>
-        <div><Icon icon="mdi:heart" class="h-5 w-5 text-red-500" /></div>
-        by
-        <a
-          href="https://github.com/engageintellect"
-          class="link-hover link underline">@engageintellect</a
-        >
-      </div>
-    </nav>
+  <footer class="footer footer-center rounded bg-base-100 text-base-content">
+    <div class="max-w-2xl mx-auto w-full">
+      <nav class="flex justify-center p-5">
+        <div class="flex gap-1">
+          <div>Made with</div>
+          <div><Icon icon="mdi:heart" class="h-5 w-5 text-red-500" /></div>
+          by
+          <a
+            href="https://github.com/engageintellect"
+            class="link-hover link underline">@engageintellect</a
+          >
+        </div>
+      </nav>
+    </div>
   </footer>
 </div>

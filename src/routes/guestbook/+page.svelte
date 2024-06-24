@@ -1,6 +1,6 @@
 <script lang="ts">
   import Post from '$lib/components/Post.svelte'
-  import { fade } from 'svelte/transition'
+  import { fade, slide } from 'svelte/transition'
   import { enhance } from '$app/forms'
   import TextArea from '$lib/components/TextArea.svelte'
   export let form
@@ -39,15 +39,8 @@
     </h1>
   </div>
 
-  <div class="flex flex-col gap-5 my-2">
-    <form
-      action="?/createPost"
-      method="POST"
-      class="w-full"
-      use:enhance={() => {
-        invalidateAll()
-      }}
-    >
+  <div in:fade={{ duration: 500 }} class="flex flex-col gap-5 my-2">
+    <form action="?/createPost" method="POST" class="w-full" use:enhance>
       <div class="form-control gap-0">
         <div>sign the guestbook</div>
         <input type="hidden" name="author" value={data?.user?.id} />
@@ -73,9 +66,9 @@
     </form>
 
     <div class="w-full">
-      <div class="">
+      <div in:slide={{ delay: 700, duration: 500 }} class="">
         <div class="text-3xl font-thin mb-2">posts</div>
-        <div in:fade={{ duration: 700 }} class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2">
           {#if data.posts.length > 0}
             {#each data.posts as post}
               <Post
