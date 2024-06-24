@@ -10,6 +10,7 @@
   import daisyuiColors from 'daisyui/src/theming/themes'
   import { onMount } from 'svelte'
   import type { PageData } from './$types'
+  import { customThemes } from '$lib/custom-themes'
 
   // START VIEW TRANSITIONS API
   import { onNavigate } from '$app/navigation'
@@ -31,6 +32,9 @@
   export let data: PageData
 
   let themes = Object.keys(daisyuiColors)
+
+  // push all items from customThemes to themes
+  themes.push(...customThemes)
 
   $: currentUser.set(data.user)
 

@@ -68,14 +68,24 @@
     <div class="">
       <h1 class="text-4xl text-primary font-bold mb-2">about</h1>
       <p>
-        <strong>Let's face it</strong>, we'd all like to build
+        <strong>Let's face it</strong>, we'd all love to build applications
         <span class="font-bold uppercase italic">fast</span>, but there are some
-        things we constantly find ourselves needing to set up before we can
-        tackle the problem we set out to solve. These tasks are often a hassle
-        to configure at the beginning of a project and even more so when we try
-        to implement them later during development.
+        things we constantly find ourselves implementing and configuring before
+        we can tackle the problem we initially set out to solve.
       </p>
-      <ul class="list-disc pl-10 pt-2">
+
+      <p class="mt-2">
+        These tasks are often a hassle to configure at the beginning of a
+        project and even more so when we try to implement them later during
+        development.
+      </p>
+
+      <p class="mt-2">
+        <a href={PUBLIC_REPOSITORY_URL} class="text-primary underline">spatz</a>
+        is ready, out of the box, to help you build your next great idea.
+      </p>
+
+      <ul class="list-disc pl-10 mt-2">
         <li>User Authentication</li>
         <li>Databases & Content Management</li>
         <li>Admin Dashboards</li>
@@ -87,10 +97,6 @@
         <li>Icons</li>
       </ul>
     </div>
-    <p>
-      <a href={PUBLIC_REPOSITORY_URL} class="text-primary underline">spatz</a>
-      is ready, out of the box, to help you build your next great idea.
-    </p>
     <div>
       <h1 class="text-4xl text-primary font-bold mb-2">technologies</h1>
       <div
