@@ -131,6 +131,30 @@ const config = {
 			"error": "#F87171",
 			"error-content": "#450A0A",
       }},
+			{'engage-dark-vercel': {
+			"primary": "#d4d4d4",
+			"primary-content": "#0a0a0a",
+			"secondary": "#525252",
+			"secondary-content": "#f5f5f5",
+			"accent": "#7e22ce",
+			"accent-content": "#f3e8ff",
+			"neutral": "#171717",
+			"neutral-content": "#F5F5F5",
+			"base-100": "#000",
+			"base-200": "#171717",
+			"base-300": "#262626",
+			"base-content": "#F1F5F9",
+			"info": "#38BDF8",
+			"info-content": "#082F49",
+			"success": "#34D399",
+			"success-content": "#022C22",
+			"warning": "#FACC15",
+			"warning-content": "#422006",
+			"error": "#F87171",
+			"error-content": "#450A0A",
+			},},
+
+
 		]
 	},
 
