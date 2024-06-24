@@ -18,6 +18,8 @@ A complete, fullstack template for Svelte.
 - [DaisyUI](https://daisyui.com): A tailwind-based component library.
 - [Zod](https://zod.dev): TypeScript-first schema declaration and validation.
 
+![Image Description](/src/lib/assets/images/spatz-features.png)
+
 ## Getting Started
 
 ### Pocketbase Setup

@@ -41,12 +41,10 @@
         selectedTheme.set(storedTheme)
         document.documentElement.setAttribute('data-theme', storedTheme)
       }
-
       // Subscribe to theme changes and update the attribute
       const unsubscribe = selectedTheme.subscribe((theme) => {
         document.documentElement.setAttribute('data-theme', theme)
       })
-
       return () => {
         unsubscribe()
       }
@@ -70,7 +68,7 @@
 <Toaster />
 
 <div class="h-full min-h-screen">
-  <div class="bg-base-100 text-neutral-content">
+  <div class="bg-base-100 text-neutral-content sticky top-0 z-50 shadow">
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
         <a href={$currentUser ? '/' : '/'} class="btn btn-primary text-xl"

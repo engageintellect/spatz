@@ -22,10 +22,10 @@ export const load: PageServerLoad = async ({ locals }) => {
     });
     // GET USERS
     const users = await locals.pb.collection('users').getFullList({
-        fields: 'id,username',
+        fields: 'id,username,avatar',
     });
     // ADD AUTHORS USERNAME TO POST OBJECT
-    const stuff = posts.map(post => ({
+    const transformedPosts = posts.map(post => ({
         id: post.id,
         author: post.author,
         content: post.content,
@@ -33,10 +33,11 @@ export const load: PageServerLoad = async ({ locals }) => {
         collectionName: post.collectionName,
         created: post.created,
         updated: post.updated,
-        username: users.find(user => user.id === post.author)?.username
+        username: users.find(user => user.id === post.author)?.username,
+				avatar: users.find(user => user.id === post.author)?.avatar
     }));
 
-    return { posts: stuff };
+    return { posts: transformedPosts };
 }
 
 // FORM ACTIONS

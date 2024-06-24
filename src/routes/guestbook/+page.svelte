@@ -7,8 +7,11 @@
   let loading = false
   import Icon from '@iconify/svelte'
   import { invalidateAll } from '$app/navigation'
+  import { currentUser } from '$lib/stores/user.js'
+  import { getImageURL } from '$lib/utils'
 
   export let data
+  $: currentUser.set(data.user)
 </script>
 
 <div class="max-w-md mx-auto w-full transition-all duration-300">
@@ -53,9 +56,19 @@
       <div class="">
         <div class="text-3xl">POSTS</div>
         <div in:fade={{ duration: 700 }} class="flex flex-col gap-2">
+          <!-- {JSON.stringify(data.posts)} -->
           {#if data.posts.length > 0}
             {#each data.posts as post}
+              <!-- {JSON.stringify(post)} -->
+              <!-- {JSON.stringify(post.avatar)} -->
               <Post
+                avatar={post?.avatar
+                  ? getImageURL(
+                      $currentUser?.collectionId,
+                      post?.author,
+                      post?.avatar,
+                    )
+                  : `https://ui-avatars.com/api/?name=${post?.username}`}
                 user={post.username}
                 postContent={post.content}
                 postDate={post.created}

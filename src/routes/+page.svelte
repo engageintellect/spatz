@@ -136,8 +136,12 @@
         <ul class="list-disc pl-10 pt-2">
           <li>User Authentication</li>
           <li>Databases & Content Management</li>
+          <li>Admin Dashboards</li>
+          <li>User Settings & Profile panels</li>
           <li>Themes & Styling</li>
+          <li>Forms</li>
           <li>Form Validation</li>
+          <li>Icons</li>
         </ul>
       </div>
       <p>
@@ -147,7 +151,7 @@
       <div>
         <h1 class="text-4xl text-primary font-bold mb-2">technologies</h1>
         <div
-          class="overflow-x-auto card border border-primary/[33%] shadow-md shadow-primary p-2"
+          class="overflow-x-auto card border border-primary/[33%] shadow-xl p-2"
         >
           <table class="table card-body">
             <!-- head -->

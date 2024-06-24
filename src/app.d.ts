@@ -18,13 +18,11 @@ declare namespace App {
     collectionName: string;
     created: string;
     updated: string;
+    avatar: string;
   }
 
   interface User {
     id: string;
     username: string;
   }
-
-  // interface PageData {}
-  // interface Platform {}
 }
