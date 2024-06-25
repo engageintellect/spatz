@@ -6,14 +6,19 @@
   } from '$env/static/public'
   import Icon from '@iconify/svelte'
   import { onMount } from 'svelte'
+  import Stats from './Stats.svelte'
 
   let stars = 0
+  let issues = 0
+  let forks = 0
 
   async function getStars() {
-    const res = await fetch(`${PUBLIC_BASE_URL}/api/getStars`)
+    const res = await fetch(`${PUBLIC_BASE_URL}/api/repoData`)
     const data = await res.json()
-    stars = data
-    return stars
+    stars = data.stars
+    issues = data.issues
+    forks = data.forks
+    return data
   }
 
   onMount(() => {
@@ -282,6 +287,11 @@
       </div>
     </div>
 
+    <div>
+      <h1 class="text-4xl text-primary font-bold mb-2">github stats</h1>
+      <Stats {stars} {issues} {forks} />
+    </div>
+
     <div class="mb-10">
       <div class="mb-2">
         <div class="flex gap-2 w-full h-full items-center">
@@ -290,14 +300,11 @@
 
         <div class="card border border-primary/[33%] shadow-xl">
           <div class="card-body p-5">
-            <p class="card-title">
-              spatz has <span
-                class="badge badge-lg text-xl bg-primary text-primary-content"
-                >{stars}</span
-              > stars on GitHub.
+            <p class="mt-2">
+              Contributions are welcomed and appreciated! If you have any ideas
+              or improvements, please fork the repository and submit a pull
+              request.
             </p>
-
-            <p class="">help make this template even better, send a PR!</p>
             <div class="flex justify-star w-full mt-2">
               <a
                 href="https://github.com/engageintellect/spatz"
