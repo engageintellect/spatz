@@ -68,7 +68,7 @@
   }
 </script>
 
-<section class="">
+<section class="mx-2">
   {#if $messages.length < 1}
     <div
       transition:slide={{ delay: 0, duration: 500 }}
@@ -93,7 +93,7 @@
           placeholder="Enter your query"
           autofocus
           bind:value={$input}
-          class="w-full input input-bordered focus:outline-none"
+          class="w-full input input-bordered focus:outline-none focus-within:outline-none"
         />
         <button type="submit" class="btn btn-primary">
           <div class="flex gap-2 items-center">
