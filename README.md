@@ -6,9 +6,9 @@ A complete, fullstack template for Svelte.
 
 [Demo App](https://spatz.engage-dev.com)
 
-![Image Description](/src/lib/assets/images/spatz.png)
+![Image Description](/src/lib/assets/images/marketing/spatz-home.png)
 
-![Image Description](/src/lib/assets/images/lighthouse.png)
+![Image Description](/src/lib/assets/images/marketing/lighthouse.png)
 
 ## Features
 
@@ -20,7 +20,11 @@ A complete, fullstack template for Svelte.
 - [DaisyUI](https://daisyui.com): A tailwind-based component library.
 - [Zod](https://zod.dev): TypeScript-first schema declaration and validation.
 
-![Image Description](/src/lib/assets/images/spatz-features.png)
+## Screenshots
+
+![Image Description](/src/lib/assets/images/marketing/spatz-menu.png)
+![Image Description](/src/lib/assets/images/marketing/spatz-guestbook.png)
+![Image Description](/src/lib/assets/images/marketing/spatz-admin.png)
 
 ## Getting Started
 
