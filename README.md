@@ -131,3 +131,7 @@ You can search for icons on [Icones](https://icones.js.org/collection/all).
 ### Theming and Styling
 
 The app comes pre-loaded with all of the standard themes from DaisyUI. You can also create your own [here](https://daisyui.com/docs/themes/#-4)
+
+## Contributing to spatz
+
+Contributions are welcomed, and appreciated. If you have a feature request, please add it as an issue or make a pull request.
