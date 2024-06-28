@@ -1,19 +1,65 @@
 <script lang="ts">
   import { useChat } from 'ai/svelte'
-  const { input, handleSubmit, messages } = useChat()
-  import Icon from '@iconify/svelte'
   import { fade, slide } from 'svelte/transition'
   import { onMount } from 'svelte'
-  let messagesEnd: HTMLElement
   import { currentUser } from '$lib/stores/user'
   import { getImageURL } from '$lib/utils'
+  import { chatMessages } from '$lib/stores/chatMessages'
+  import { get } from 'svelte/store'
+  import { PUBLIC_OPENAI_MODEL } from '$env/static/public'
   import robot from '$lib/assets/images/robot14-nobg.png'
+  import ScrollToTopButton from '$lib/components/ScrollToTopButton.svelte'
+  import Icon from '@iconify/svelte'
 
+  let messagesEnd: HTMLElement
+  const {
+    input,
+    handleSubmit: originalHandleSubmit,
+    messages,
+    setMessages,
+  } = useChat()
+  let initialLoadComplete = false
+
+  // Initialize messages from the store
   onMount(() => {
+    const savedMessages = JSON.parse(
+      localStorage.getItem('chatMessages') || '[]',
+    )
+    setMessages(savedMessages)
+    initialLoadComplete = true
     scrollToBottom()
   })
 
-  $: $messages, scrollToBottom()
+  // Handle form submission and update messages
+  async function handleSubmit(event: any) {
+    event.preventDefault() // Prevent default form submission behavior
+    await originalHandleSubmit(event)
+    // Ensure the store is updated after new message is added
+    chatMessages.set(get(messages))
+    scrollToBottom() // Scroll to bottom after adding new message
+  }
+
+  // Clear the chat messages
+  function clearChat() {
+    setMessages([])
+    chatMessages.set([])
+    localStorage.removeItem('chatMessages')
+  }
+
+  // Scroll to the bottom of the chat
+  $: {
+    if (initialLoadComplete) {
+      scrollToBottom()
+    }
+  }
+
+  // Update chatMessages whenever messages change
+  $: {
+    if (initialLoadComplete) {
+      chatMessages.set($messages)
+      scrollToBottom()
+    }
+  }
 
   function scrollToBottom() {
     if (messagesEnd) {
@@ -33,7 +79,7 @@
         class="flex gap-2 items-center mt-5 md:mt-0 mb-2"
       >
         <Icon icon="simple-icons:openai" class="w-10 h-10" />
-        <h1 class="text-3xl">gpt-3.5-turbo</h1>
+        <h1 class="text-3xl">{PUBLIC_OPENAI_MODEL}</h1>
       </div>
     </div>
   {/if}
@@ -54,6 +100,18 @@
             <Icon icon="mdi-send" class="w-7 h-7" />
           </div>
         </button>
+        {#if $messages.length > 0}
+          <button
+            type="button"
+            class="btn btn-error"
+            on:click={clearChat}
+            in:fade={{ duration: 300 }}
+          >
+            <div class="flex gap-2 items-center">
+              <Icon icon="mdi-delete" class="w-7 h-7" />
+            </div>
+          </button>
+        {/if}
       </div>
     </form>
   </div>
@@ -116,3 +174,7 @@
     <div bind:this={messagesEnd}></div>
   </div>
 </section>
+
+<div class="flex justify-end">
+  <ScrollToTopButton />
+</div>

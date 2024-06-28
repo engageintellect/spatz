@@ -59,6 +59,7 @@ cd spatz
 ```bash
 touch 'PUBLIC_POCKETBASE_URL=YOUR_POCKETBASE_URL' >> .env.local
 touch 'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' >> .env.local
+touch 'PUBLIC_OPENAI_MODEL=YOUR_GPT_MODEL (default=gpt-3.5.turbo)' >> .env.local
 touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local
 touch 'PUBLIC_DOCS_URL=YOUR_DOCS_URL' >> .env.local
 touch 'PUBLIC_GITHUB_STARS_URL=YOUR_PUBLIC_GITHUB_STARS_URL' >> .env.local
@@ -93,11 +94,11 @@ pnpm i && pnpm run dev --host
 │   ├── /api
 │   │   ├── /repoData (fetch github repository stars)
 │   │   ├── /chat (OpenAI streaming API)
-│   │   └── /auth (Pocketbase auth)
-│   │       ├── /login
-│   │       ├── /register
-│   │       ├── /logout
-│   │       └── /reset-password
+│   │__ /auth (Pocketbase auth)
+│   │   ├── /login
+│   │   ├── /register
+│   │   ├── /logout
+│   │   └── /reset-password
 │   └── /my (user-specific routes)
 │       ├── /account
 │       ├── /profile

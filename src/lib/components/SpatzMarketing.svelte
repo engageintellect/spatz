@@ -217,6 +217,10 @@
             ></pre>
 
           <pre data-prefix="$"><code
+              >touch 'PUBLIC_OPENAI_MODEL=YOUR_GPT_API_MODEL (default=gpt-3.5-turbo)' >> .env.local</code
+            ></pre>
+
+          <pre data-prefix="$"><code
               >touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local</code
             ></pre>
 
