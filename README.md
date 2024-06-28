@@ -22,7 +22,16 @@ A complete, fullstack template for Svelte.
 
 ## Screenshots
 
+### Home & Features
+
 ![Image Description](/src/lib/assets/images/marketing/spatz-menu.png)
+
+### User Profile & Settings UI
+
+![Image Description](/src/lib/assets/images/marketing/spatz-profile.png)
+
+### Client/Pocketbase UI
+
 ![Image Description](/src/lib/assets/images/marketing/spatz-guestbook.png)
 ![Image Description](/src/lib/assets/images/marketing/spatz-admin.png)
 
