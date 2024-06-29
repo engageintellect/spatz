@@ -1,13 +1,12 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { PUBLIC_OPENAI_MODEL } from '$env/static/public';
- 
-
 // You may want to replace the above with a static private env variable
 // for dead-code elimination and build-time type-checking:
 import { OPENAI_API_KEY } from '$env/static/private'
  
 import type { RequestHandler } from './$types';
+
  
 // Create an OpenAI API client
 const openai = new OpenAI({
@@ -23,7 +22,7 @@ export const POST = (async ({ request }) => {
     model: PUBLIC_OPENAI_MODEL || 'gpt-3.5-turbo',
     stream: true,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    messages: messages.map((message:any) => ({
+    messages: messages.map((message: App.Message) => ({
       content: message.content,
       role: message.role,
     })),

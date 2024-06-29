@@ -7,7 +7,6 @@ export const getImageURL = (collectionId: unknown, recordId: unknown, fileName: 
 };
 
 
-
 export const validateData = async (formData:any, schema:any) => {
 	const body = Object.fromEntries(formData);
 

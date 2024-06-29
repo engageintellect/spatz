@@ -1,4 +1,4 @@
-// src/app.d.ts
+// src/lib/app.d.ts
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -25,5 +25,10 @@ declare namespace App {
   interface User {
     id: string;
     username: string;
+  }
+
+  interface Message {
+    content: string;
+    role: string;
   }
 }
