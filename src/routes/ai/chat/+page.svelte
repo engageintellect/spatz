@@ -68,7 +68,7 @@
   }
 </script>
 
-<section class="mx-2">
+<section>
   {#if $messages.length < 1}
     <div
       transition:slide={{ delay: 0, duration: 500 }}
