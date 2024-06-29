@@ -164,7 +164,7 @@
 
             <ul
               tabindex="-1"
-              class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-52 border-[0.5px] border-primary mt-3 z-50"
+              class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-fit border-[0.5px] border-primary mt-3 z-50"
               aria-label="User Menu"
             >
               <li class="mb-5">
@@ -189,7 +189,7 @@
                       class="w-5 h-5"
                     />
                     <div>Guestbook</div>
-                    <div class="badge badge-accent">new</div>
+                    <div class="badge badge-sm badge-accent">new</div>
                   </div>
                 </a>
               </li>
@@ -199,7 +199,7 @@
                   <div class="flex gap-2 items-center font-bold">
                     <Icon icon="simple-icons:openai" class="w-5 h-5" />
                     <div>AI</div>
-                    <div class="badge badge-accent">new</div>
+                    <div class="badge badge-sm badge-accent">new</div>
                   </div>
                 </a>
               </li>

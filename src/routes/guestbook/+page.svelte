@@ -1,7 +1,6 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition'
   import { enhance } from '$app/forms'
-  import { invalidateAll } from '$app/navigation'
   import { currentUser } from '$lib/stores/user.js'
   import { getImageURL } from '$lib/utils'
   import { onMount } from 'svelte'
@@ -9,8 +8,19 @@
   import TextArea from '$lib/components/TextArea.svelte'
   import Icon from '@iconify/svelte'
 
-  export let form
-  export let data
+  export let form: {
+    data: {
+      content?: string
+    }
+    errors: {
+      content?: string[]
+    }
+  }
+
+  export let data: {
+    user: App.User
+    posts: App.Post[]
+  }
 
   let loading = false
 
