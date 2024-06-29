@@ -1,10 +1,41 @@
-# spatz docs
+# spatz
 
 ## Description
 
 A complete, fullstack template for Svelte.
 
-## Installation
+[Demo App](https://spatz.engage-dev.com)
+
+![Image Description](/src/lib/assets/images/marketing/spatz-home.png)
+
+![Image Description](/src/lib/assets/images/marketing/lighthouse.png)
+
+## Features
+
+- [Sveltekit](https://kit.svelte.dev/): Futuristic web framework for building blazing fast web apps.
+- [Pocketbase](https://pocketbase.io): Self-contained User Auth, Database, Admin UI, and API documentation.
+- [OpenAI](https://openai.com): chatGPT 3.5-turbo & 4.0-turbo for contextually aware chatbots.
+- [Vercel AI SDK](https://vercel.com/ai): AI/ML models for image, text, and audio processing.
+- [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for rapid UI development.
+- [DaisyUI](https://daisyui.com): A tailwind-based component library.
+- [Zod](https://zod.dev): TypeScript-first schema declaration and validation.
+
+## Screenshots
+
+### Home & Features
+
+![Image Description](/src/lib/assets/images/marketing/spatz-menu.png)
+
+### User Profile & Settings UI
+
+![Image Description](/src/lib/assets/images/marketing/spatz-profile.png)
+
+### Client/Pocketbase UI
+
+![Image Description](/src/lib/assets/images/marketing/spatz-guestbook.png)
+![Image Description](/src/lib/assets/images/marketing/spatz-admin.png)
+
+## Getting Started
 
 ### Pocketbase Setup
 
@@ -41,6 +72,7 @@ cd spatz
 ```bash
 touch 'PUBLIC_POCKETBASE_URL=YOUR_POCKETBASE_URL' >> .env.local
 touch 'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' >> .env.local
+touch 'PUBLIC_OPENAI_MODEL=YOUR_GPT_MODEL (default=gpt-3.5.turbo)' >> .env.local
 touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local
 touch 'PUBLIC_DOCS_URL=YOUR_DOCS_URL' >> .env.local
 touch 'PUBLIC_GITHUB_STARS_URL=YOUR_PUBLIC_GITHUB_STARS_URL' >> .env.local
@@ -75,11 +107,11 @@ pnpm i && pnpm run dev --host
 │   ├── /api
 │   │   ├── /repoData (fetch github repository stars)
 │   │   ├── /chat (OpenAI streaming API)
-│   │   └── /auth (Pocketbase auth)
-│   │       ├── /login
-│   │       ├── /register
-│   │       ├── /logout
-│   │       └── /reset-password
+│   │__ /auth (Pocketbase auth)
+│   │   ├── /login
+│   │   ├── /register
+│   │   ├── /logout
+│   │   └── /reset-password
 │   └── /my (user-specific routes)
 │       ├── /account
 │       ├── /profile
@@ -100,14 +132,6 @@ You can search for icons on [Icones](https://icones.js.org/collection/all).
 
 The app comes pre-loaded with all of the standard themes from DaisyUI. You can also create your own [here](https://daisyui.com/docs/themes/#-4)
 
-#### Adding Custom Themes
+## Contributing to spatz
 
-spatz makes it easy to add custom themes to your app. To add a custom theme, follow these steps:
-
-1. Go to [DaisyUI's theme creator](https://daisyui.com/theme-generator/) and create your custom theme.
-
-2. Copy the generated CSS and paste it into a new file in the `/tailwind.config.cjs` files in the "themes" array.
-
-3. Add the new theme to the list of custom themes in `src/lib/custom-themes.ts`.
-
-4. That's it! Your new theme will now be available in the app, and will be selectable from the theme switcher.
+Contributions are welcomed, and appreciated. If you have a feature request, please add it as an issue or make a pull request.
