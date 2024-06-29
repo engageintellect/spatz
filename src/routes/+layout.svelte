@@ -11,6 +11,7 @@
   import { onMount } from 'svelte'
   import type { PageData } from './$types'
   import { customThemes } from '$lib/custom-themes'
+  import { chatMessages } from '$lib/stores/chatMessages'
 
   // START VIEW TRANSITIONS API
   import { onNavigate } from '$app/navigation'
@@ -65,6 +66,9 @@
 
   function handleLogout() {
     pb.authStore.clear()
+    // Clear AI chat messages
+    chatMessages.set([])
+    localStorage.removeItem('chatMessages')
     window.location.href = '/'
   }
 </script>

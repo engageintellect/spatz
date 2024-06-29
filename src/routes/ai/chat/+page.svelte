@@ -41,7 +41,7 @@
 
   // Clear the chat messages
   function clearChat() {
-    setMessages([])
+    // setMessages([])
     chatMessages.set([])
     localStorage.removeItem('chatMessages')
   }
