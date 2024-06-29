@@ -133,7 +133,7 @@
               </div>
             </div>
             <div class="chat-header">
-              {$currentUser ? $currentUser?.username : 'no'}
+              {$currentUser ? '@' + $currentUser?.username : 'no'}
               <time class="text-xs opacity-50">12:46</time>
             </div>
             <div class="card bg-base-300 text-base-content">
@@ -155,7 +155,7 @@
               </div>
             </div>
             <div class="chat-header">
-              {message.role ? 'chatGPT' : 'bot'}
+              {message.role ? '@chatGPT' : '@bot'}
               <time class="text-xs opacity-50">12:45</time>
             </div>
             <div class="card bg-primary text-primary-content">
