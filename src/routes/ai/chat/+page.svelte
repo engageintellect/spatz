@@ -70,12 +70,9 @@
 
 <section>
   {#if $messages.length < 1}
-    <div
-      transition:slide={{ delay: 0, duration: 500 }}
-      class="flex flex-col w-full"
-    >
+    <div class="flex flex-col w-full">
       <div
-        transition:fade={{ delay: 0, duration: 300 }}
+        in:fade={{ delay: 0, duration: 300 }}
         class="flex gap-2 items-center mt-5 md:mt-0 mb-2"
       >
         <Icon icon="simple-icons:openai" class="w-10 h-10" />
