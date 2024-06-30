@@ -1,6 +1,12 @@
 <script lang="ts">
   import Video from '$lib/assets/videos/spatz.mp4'
   import { fade } from 'svelte/transition'
+
+  let videoElement: any
+
+  function playVideo() {
+    videoElement.play()
+  }
 </script>
 
 <div
@@ -8,11 +14,15 @@
 >
   <div in:fade={{ delay: 300, duration: 1000 }}>
     <video
+      bind:this={videoElement}
       src={Video}
       autoplay
       loop
       muted
+      playsinline
+      controls
       class="w-full h-60 sm:h-fit sm:mt-16 rounded-t-lg shadow-xl mt-5 transition-all duration-300"
+      on:click={playVideo}
     ></video>
   </div>
 </div>
