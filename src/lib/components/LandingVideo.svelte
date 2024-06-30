@@ -10,9 +10,9 @@
 </script>
 
 <div
-  class="flex overflow-auto justify-center h-64 sm:h-80 transition-all duration-300 items-center border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
+  class="flex flex-col items-center justify-center overflow-auto h-64 sm:h-80 transition-all duration-300 border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
 >
-  <div in:fade={{ delay: 300, duration: 1000 }}>
+  <div in:fade={{ delay: 300, duration: 1000 }} class="w-full">
     <video
       bind:this={videoElement}
       src={Video}
@@ -20,8 +20,7 @@
       loop
       muted
       playsinline
-      controls
-      class="w-full h-60 sm:h-fit sm:mt-16 rounded-t-lg shadow-xl mt-5 transition-all duration-300"
+      class="w-full h-full max-h-60 sm:max-h-fit sm:mt-16 rounded-t-lg shadow-xl mt-5 transition-all duration-300"
       on:click={playVideo}
     ></video>
   </div>
