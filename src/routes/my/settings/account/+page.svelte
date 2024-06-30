@@ -3,6 +3,8 @@
   import { invalidateAll } from '$app/navigation'
   import Input from '$lib/components/Input.svelte'
   import Modal from '$lib/components/Modal.svelte'
+  import { toast } from '$lib/stores/toast'
+  import Toast from '$lib/components/Toast.svelte'
 
   export let form
   export let data
@@ -21,13 +23,32 @@
       switch (result.type) {
         case 'success':
           await invalidateAll()
-          emailModalOpen = false
+          toast.set({
+            show: true,
+            message: 'Email updated successfully',
+            type: 'success',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
           break
         case 'error':
+          await invalidateAll()
+          toast.set({
+            show: true,
+            message: 'Email update failed',
+            type: 'error',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
           break
         default:
           await applyAction(result)
       }
+      emailModalOpen = false
       loading = false
     }
   }
@@ -39,8 +60,27 @@
       switch (result.type) {
         case 'success':
           await invalidateAll()
+          toast.set({
+            show: true,
+            message: 'Profile updated successfully',
+            type: 'success',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
+          await invalidateAll()
           break
         case 'error':
+          toast.set({
+            show: true,
+            message: 'Profile update failed',
+            type: 'error',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
           break
         default:
           await applyAction(result)
@@ -119,3 +159,5 @@
     </Modal>
   </div>
 </div>
+
+<Toast type={$toast.type} message={$toast.message} show={$toast.show} />

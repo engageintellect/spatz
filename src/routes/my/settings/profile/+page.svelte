@@ -32,8 +32,6 @@
     return async ({ result }: any) => {
       switch (result.type) {
         case 'success':
-          // toast.success('profile updated.')
-
           toast.set({
             show: true,
             message: 'Profile updated successfully',
@@ -43,7 +41,6 @@
             () => toast.set({ show: false, message: '', type: '' }),
             2000,
           )
-
           await invalidateAll()
           break
         case 'error':
@@ -56,7 +53,6 @@
             () => toast.set({ show: false, message: '', type: '' }),
             2000,
           )
-
           break
         default:
           await applyAction(result)
@@ -131,10 +127,6 @@
               icon="mdi-account-circle"
               class="h-full scale-110 w-full rounded-full text-base-100 bg-primary"
             />
-            <!-- <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  /> -->
           {/if}
         </div>
       </label>

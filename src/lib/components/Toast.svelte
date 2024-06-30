@@ -14,7 +14,7 @@
     out:fade={{ duration: 300 }}
     class={`z-50 mt-16 toast toast-${x} toast-${y}`}
   >
-    <div class={`shadow-lg alert alert-${type}`}>
+    <div class={`shadow-lg border border-${type}-content alert alert-${type}`}>
       <div class={`flex items-center gap-2 text-${type}-content`}>
         <div>
           <Icon icon="carbon:notification" class="w-5 h-5" />

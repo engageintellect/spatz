@@ -183,7 +183,7 @@
               </li>
 
               <li>
-                <a href="/guestbook" aria-label="Guestbook">
+                <a href="/guestbook" aria-label="Guestbook" class="text-nowrap">
                   <div class="flex gap-2 items-center font-bold">
                     <Icon
                       icon="fluent-emoji-high-contrast:ledger"
@@ -196,7 +196,7 @@
               </li>
 
               <li>
-                <a href="/ai/chat" aria-label="AI Chat">
+                <a href="/ai/chat" aria-label="AI Chat" class="text-nowrap">
                   <div class="flex gap-2 items-center font-bold">
                     <Icon icon="simple-icons:openai" class="w-5 h-5" />
                     <div>AI</div>
@@ -208,18 +208,18 @@
               <li>
                 <a
                   href={`${PUBLIC_POCKETBASE_URL}/_/`}
-                  class="font-bold flex items-center gap-2"
+                  class="font-bold flex items-center gap-2 text-nowrap"
                   aria-label="PocketBase"
                 >
                   <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-                  <div>PocketBase</div>
+                  <div>PB Admin</div>
                 </a>
               </li>
 
               <li>
                 <a
                   href="/my/settings/profile"
-                  class="font-bold flex items-center gap-2"
+                  class="font-bold flex items-center gap-2 text-nowrap"
                   aria-label="Profile"
                 >
                   <Icon icon="mdi-user" class="w-5 h-5" />
@@ -229,7 +229,7 @@
               <li>
                 <a
                   href="/my/settings/account"
-                  class="font-bold flex items-center gap-2"
+                  class="font-bold flex items-center gap-2 text-nowrap"
                   aria-label="Account Settings"
                 >
                   <Icon icon="mdi-grid" class="w-5 h-5" />
@@ -239,7 +239,7 @@
               <li>
                 <a
                   href="/my/settings/security"
-                  class="font-bold flex items-center gap-2"
+                  class="font-bold flex items-center gap-2 text-nowrap"
                   aria-label="Security Settings"
                 >
                   <Icon icon="mdi-gear" class="w-5 h-5" />
