@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '@iconify/svelte'
-  import { fade } from 'svelte/transition'
+  import { fade, slide } from 'svelte/transition'
   export let message = 'New message arrived.'
   export let type = 'success'
   export let x = 'center'
@@ -10,7 +10,7 @@
 
 {#if show}
   <div
-    in:fade={{ duration: 300 }}
+    in:slide={{ duration: 300 }}
     out:fade={{ duration: 300 }}
     class={`z-50 mt-16 toast toast-${x} toast-${y}`}
   >

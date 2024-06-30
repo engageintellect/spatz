@@ -68,7 +68,7 @@
           {#if loading}
             <span class="loading loading-spinner loading-md"></span>
           {:else}
-            send <Icon
+            submit <Icon
               icon="mdi-send"
               class="w-5 h-5 md:group-hover/submitButton:translate-x-1 transition-all duration-300"
             />
