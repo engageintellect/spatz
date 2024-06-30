@@ -20,7 +20,7 @@
       loop
       muted
       playsinline
-      class="w-full h-full max-h-60 sm:max-h-fit sm:mt-16 rounded-t-lg shadow-xl mt-5 transition-all duration-300"
+      class="rounded-t-lg w-full h-60 sm:h-full object-top object-cover mt-5 sm:mt-16"
       on:click={playVideo}
     ></video>
   </div>
