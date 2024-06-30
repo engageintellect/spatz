@@ -4,7 +4,8 @@
   import Input from '$lib/components/Input.svelte'
   import { getImageURL } from '$lib/utils'
   import Icon from '@iconify/svelte'
-  import toast from 'svelte-french-toast'
+  import { toast } from '$lib/stores/toast'
+  import Toast from '$lib/components/Toast.svelte'
 
   export let data
   export let form
@@ -31,17 +32,54 @@
     return async ({ result }: any) => {
       switch (result.type) {
         case 'success':
-          toast.success('profile updated.')
+          // toast.success('profile updated.')
+
+          toast.set({
+            show: true,
+            message: 'Profile updated successfully',
+            type: 'success',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
+
           await invalidateAll()
           break
         case 'error':
-          toast.error('an error occurred.')
+          toast.set({
+            show: true,
+            message: 'Profile update failed',
+            type: 'error',
+          })
+          setTimeout(
+            () => toast.set({ show: false, message: '', type: '' }),
+            2000,
+          )
+
           break
         default:
           await applyAction(result)
       }
       loading = false
     }
+  }
+
+  function copyToClipboard(content: string) {
+    navigator.clipboard.writeText(content).then(
+      () => {
+        toast.set({
+          show: true,
+          message: 'Message copied to clipboard',
+          type: 'success',
+        })
+        setTimeout(
+          () => toast.set({ show: false, message: '', type: '' }),
+          2000,
+        )
+      },
+      (err) => console.error('Could not copy text: ', err),
+    )
   }
 </script>
 
@@ -147,3 +185,5 @@
     </div>
   </form>
 </div>
+
+<Toast type={$toast.type} message={$toast.message} show={$toast.show} />

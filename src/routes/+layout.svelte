@@ -4,7 +4,6 @@
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
   import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
-  import { Toaster } from 'svelte-french-toast'
   import { currentUser } from '$lib/stores/user'
   import { selectedTheme } from '$lib/stores/theme'
   import daisyuiColors from 'daisyui/src/theming/themes'
@@ -72,8 +71,6 @@
     window.location.href = '/'
   }
 </script>
-
-<Toaster />
 
 <div class="h-full min-h-screen">
   <div class="bg-base-100 text-neutral-content sticky top-0 z-50 shadow">

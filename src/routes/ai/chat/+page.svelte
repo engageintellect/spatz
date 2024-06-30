@@ -1,6 +1,6 @@
 <script lang="ts">
   import { useChat } from 'ai/svelte'
-  import { fade, slide } from 'svelte/transition'
+  import { fade } from 'svelte/transition'
   import { onMount } from 'svelte'
   import { currentUser } from '$lib/stores/user'
   import { getImageURL } from '$lib/utils'
@@ -10,6 +10,8 @@
   import robot from '$lib/assets/images/robot14-nobg.png'
   import ScrollToTopButton from '$lib/components/ScrollToTopButton.svelte'
   import Icon from '@iconify/svelte'
+  import Toast from '$lib/components/Toast.svelte'
+  import { toast } from '$lib/stores/toast' // Import the toast store
 
   let messagesEnd: HTMLElement
   const {
@@ -20,7 +22,6 @@
   } = useChat()
   let initialLoadComplete = false
 
-  // Initialize messages from the store
   onMount(() => {
     const savedMessages = JSON.parse(
       localStorage.getItem('chatMessages') || '[]',
@@ -30,30 +31,19 @@
     scrollToBottom()
   })
 
-  // Handle form submission and update messages
   async function handleSubmit(event: any) {
-    event.preventDefault() // Prevent default form submission behavior
+    event.preventDefault()
     await originalHandleSubmit(event)
-    // Ensure the store is updated after new message is added
     chatMessages.set(get(messages))
-    scrollToBottom() // Scroll to bottom after adding new message
+    scrollToBottom()
   }
 
-  // Clear the chat messages
   function clearChat() {
-    // setMessages([])
+    setMessages([]) // Clear the messages state
     chatMessages.set([])
     localStorage.removeItem('chatMessages')
   }
 
-  // Scroll to the bottom of the chat
-  $: {
-    if (initialLoadComplete) {
-      scrollToBottom()
-    }
-  }
-
-  // Update chatMessages whenever messages change
   $: {
     if (initialLoadComplete) {
       chatMessages.set($messages)
@@ -62,9 +52,24 @@
   }
 
   function scrollToBottom() {
-    if (messagesEnd) {
-      messagesEnd.scrollIntoView({ behavior: 'smooth' })
-    }
+    messagesEnd?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  function copyToClipboard(content: string) {
+    navigator.clipboard.writeText(content).then(
+      () => {
+        toast.set({
+          show: true,
+          message: 'Message copied to clipboard',
+          type: 'success',
+        })
+        setTimeout(
+          () => toast.set({ show: false, message: '', type: '' }),
+          2000,
+        )
+      },
+      (err) => console.error('Could not copy text: ', err),
+    )
   }
 </script>
 
@@ -81,11 +86,9 @@
     </div>
   {/if}
 
-  <div class="sticky top-14 md:top-0 bg-base-100 w-full z-10">
+  <div class="sticky top-16 bg-base-100 w-full z-10">
     <form class="bg-base-100 py-2 top-0 w-full" on:submit={handleSubmit}>
       <div class="flex gap-2 w-full">
-        <!-- TODO: This can be cleaner -->
-        <!-- svelte-ignore a11y-autofocus -->
         <input
           placeholder="Enter your query"
           autofocus
@@ -116,56 +119,66 @@
   <div class="py-5 w-full -z-10">
     <div class="w-full flex flex-col gap-5">
       {#each $messages as message}
-        {#if message.role === 'user'}
-          <div class="chat chat-end">
-            <div class="chat-image avatar">
-              <div class="w-10 rounded-full">
-                <img
-                  src={$currentUser?.avatar
+        <div
+          class={`chat ${message.role === 'user' ? 'chat-end' : 'chat-start'}`}
+        >
+          <div class="chat-image avatar">
+            <div class="w-10 rounded-full">
+              <img
+                src={message.role === 'user'
+                  ? $currentUser?.avatar
                     ? getImageURL(
                         $currentUser?.collectionId,
                         $currentUser?.id,
                         $currentUser?.avatar,
                       )
-                    : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
-                  alt="User avatar"
-                />
-              </div>
+                    : `https://ui-avatars.com/api/?name=${$currentUser?.email}`
+                  : robot}
+                alt={message.role === 'user'
+                  ? 'User avatar'
+                  : 'Tailwind CSS chat bubble component'}
+                class={message.role === 'assistant'
+                  ? 'bg-primary scale-x-[-1]'
+                  : ''}
+              />
             </div>
-            <div class="chat-header">
-              {$currentUser ? '@' + $currentUser?.username : 'no'}
-              <time class="text-xs opacity-50">12:46</time>
-            </div>
-            <div class="card bg-base-300 text-base-content">
-              <div class="card-body py-2 px-4">
-                {@html message.content}
-              </div>
-            </div>
-            <div class="chat-footer opacity-50">Seen at 12:46</div>
           </div>
-        {:else}
-          <div class="chat chat-start">
-            <div class="chat-image avatar">
-              <div class="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS chat bubble component"
-                  src={robot}
-                  class="bg-primary scale-x-[-1]"
-                />
-              </div>
-            </div>
-            <div class="chat-header">
-              {message.role ? '@chatGPT' : '@bot'}
-              <time class="text-xs opacity-50">12:45</time>
-            </div>
-            <div class="card bg-primary text-primary-content">
-              <div class="card-body py-2 px-4">
-                {@html message.content}
-              </div>
-            </div>
-            <div class="chat-footer opacity-50">Delivered</div>
+          <div class="chat-header">
+            {message.role === 'user'
+              ? $currentUser
+                ? '@' + $currentUser?.username
+                : 'no'
+              : '@chatGPT'}
+            <time class="text-xs text-neutral-content/50"
+              >{new Date().toLocaleTimeString()}</time
+            >
           </div>
-        {/if}
+
+          <div
+            class={`card ${message.role === 'user' ? 'bg-base-300 text-base-content' : 'bg-primary text-primary-content'}`}
+          >
+            <div class="card-body py-2 px-4">
+              {@html message.content}
+            </div>
+          </div>
+          <div class="chat-footer opacity-50">
+            <div class="flex items-center gap-2 mt-1">
+              <!-- <div>
+                {message.role === 'user' ? 'Seen at 12:46' : 'Delivered'}
+              </div> -->
+
+              <button
+                on:click={() => copyToClipboard(message.content)}
+                class=""
+              >
+                <div class="flex items-center gap-1">
+                  <Icon icon="mdi-content-copy" class="w-4 h-4" />
+                  <div class="text-xs">copy</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
       {/each}
     </div>
     <div bind:this={messagesEnd}></div>
@@ -175,3 +188,5 @@
 <div class="flex justify-end">
   <ScrollToTopButton />
 </div>
+
+<Toast type={$toast.type} message={$toast.message} show={$toast.show} />

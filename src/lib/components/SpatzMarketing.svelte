@@ -7,6 +7,7 @@
   import Icon from '@iconify/svelte'
   import { onMount } from 'svelte'
   import Stats from './Stats.svelte'
+  import Toast from './Toast.svelte'
 
   let stars = 0,
     issues = 0,
@@ -78,7 +79,8 @@
       </p>
       <p class="mt-2">
         <a href={PUBLIC_REPOSITORY_URL} class="text-primary underline">spatz</a>
-        is ready, out of the box, to help you build your next great idea.
+        is ready, out of the box to help you build your next great idea. It includes
+        all the features you need to get started quickly:
       </p>
       <ul class="list-disc pl-10 mt-2">
         <li>User Authentication</li>

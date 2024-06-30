@@ -27,7 +27,7 @@
 <div class="divider bg-base-100" />
 <div class="flex flex-col md:flex-row w-full h-full">
   <ul
-    class="sticky top-0 menu w-full menu-horizontal z-10 gap-2 overflow-auto flex flex-nowrap md:menu-vertical bg-base-100 h-full md:w-40 md:rounded-box"
+    class="sticky md:top-16 menu w-full menu-horizontal z-10 gap-2 overflow-auto flex flex-nowrap md:menu-vertical bg-base-100 h-full md:w-40 md:rounded-box"
   >
     {#each navigation as navItem}
       <li>
