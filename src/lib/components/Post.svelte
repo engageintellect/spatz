@@ -16,7 +16,7 @@
     <div class="flex items-start gap-2">
       <div class="avatar">
         <div class="w-12 rounded-full border-2 border-primary shadow">
-          <img src={avatar} class=" shadow-inner" />
+          <img src={avatar} class=" shadow-inner" alt="user avatar" />
         </div>
       </div>
       <div class="w-full">
