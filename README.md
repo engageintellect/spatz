@@ -67,16 +67,10 @@ git clone https://github.com/engageintellect/spatz
 cd spatz
 ```
 
-2. Set your Pocketbase URL and OpenAI API key in a `.env.local` file.
+2. Copy .env.example and replace the values with your own.
 
 ```bash
-touch 'PUBLIC_POCKETBASE_URL=YOUR_POCKETBASE_URL' >> .env.local
-touch 'OPENAI_API_KEY=YOUR_OPENAI_API_KEY' >> .env.local
-touch 'PUBLIC_OPENAI_MODEL=YOUR_GPT_MODEL (default=gpt-3.5.turbo)' >> .env.local
-touch 'PUBLIC_REPOSITORY_URL=YOUR_REPOSITORY_URL' >> .env.local
-touch 'PUBLIC_DOCS_URL=YOUR_DOCS_URL' >> .env.local
-touch 'PUBLIC_GITHUB_STARS_URL=YOUR_PUBLIC_GITHUB_STARS_URL' >> .env.local
-touch 'PUBLIC_BASE_URL=YOUR_BASE_URL' >> .env.local
+cp .env.example .env.local (or .env)
 ```
 
 3. Install the dependencies and start the development server.
