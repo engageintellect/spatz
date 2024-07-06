@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
   import { pb } from '$lib/pocketbase'
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
@@ -10,6 +9,7 @@
   import { customThemes } from '$lib/custom-themes'
   import { chatMessages } from '$lib/stores/chatMessages'
   import { goto } from '$app/navigation'
+  import { navLinks } from '$lib/nav-links'
 
   export let data
 
@@ -148,10 +148,10 @@
       aria-label="close sidebar"
       class="drawer-overlay"
     ></label>
-    <ul class="menu bg-base-100 min-h-full w-fit max-w-3/4 p-4">
+    <ul class="menu bg-base-100 min-h-full w-fit max-w-3/4 p-2">
       <!-- Sidebar content here -->
 
-      <li class="mb-5">
+      <li class="">
         <div
           class="bg-primary hover:bg-primary text-primary-content w-full truncate"
         >
@@ -166,99 +166,24 @@
         </div>
       </li>
 
-      <li>
-        <a
-          href="/"
-          aria-label="Home"
-          class="text-nowrap"
-          on:click={handleLinkClick}
-        >
-          <div class="flex gap-2 items-center font-bold">
-            <Icon icon="material-symbols:home" class="w-5 h-5" />
-            <div>Home</div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="/guestbook"
-          aria-label="Guestbook"
-          class="text-nowrap"
-          on:click={handleLinkClick}
-        >
-          <div class="flex gap-2 items-center font-bold">
-            <Icon icon="fluent-emoji-high-contrast:ledger" class="w-5 h-5" />
-            <div>Guestbook</div>
-            <div class="badge badge-sm badge-accent">new</div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="/ai/chat"
-          aria-label="AI Chat"
-          class="text-nowrap"
-          on:click={handleLinkClick}
-        >
-          <div class="flex gap-2 items-center font-bold">
-            <Icon icon="simple-icons:openai" class="w-5 h-5" />
-            <div>AI</div>
-            <div class="badge badge-sm badge-accent">new</div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="/my/settings/profile"
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="Profile"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="mdi-user" class="w-5 h-5" />
-          <div>Profile</div>
-        </a>
-      </li>
-      <li>
-        <a
-          href="/my/settings/account"
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="Account Settings"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="mdi-grid" class="w-5 h-5" />
-          <div>Account</div>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="/my/settings/security"
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="Security Settings"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="mdi-gear" class="w-5 h-5" />
-          <div>Settings</div>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href={`${PUBLIC_POCKETBASE_URL}/_/`}
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="PocketBase"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-          <div>PB Admin</div>
-        </a>
-      </li>
+      <div class="my-5">
+        {#each navLinks as link}
+          <li>
+            <a href={link.href} aria-label={link.name} class="text-nowrap">
+              <div class="flex gap-2 items-center font-bold">
+                <Icon icon={link.icon} class="w-5 h-5" />
+                <div>{link.name}</div>
+                {#if link.new}
+                  <div class="badge badge-sm badge-accent">new</div>
+                {/if}
+              </div>
+            </a>
+          </li>
+        {/each}
+      </div>
 
       <form
-        class="w-full flex mt-5"
+        class="w-full flex"
         method="POST"
         action="/auth/logout"
         on:submit={handleLogout}
@@ -292,7 +217,7 @@
     ></label>
     <ul class="menu bg-base-100 min-h-full w-2/3">
       <li
-        class="z-50 sticky top-0 w-full bg-base-100 p-2"
+        class="z-50 sticky top-0 w-full bg-base-100 py-2"
         aria-label={`Current Theme: ${$selectedTheme}`}
       >
         <div class="flex items-center gap-2 btn btn-primary">

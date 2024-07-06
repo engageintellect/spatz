@@ -2,7 +2,6 @@
   import { pb } from '$lib/pocketbase'
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
-  import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import { selectedTheme } from '$lib/stores/theme'
   import daisyuiColors from 'daisyui/src/theming/themes'
@@ -10,6 +9,7 @@
   import { customThemes } from '$lib/custom-themes'
   import { chatMessages } from '$lib/stores/chatMessages'
   import { goto } from '$app/navigation'
+  import { navLinks } from '$lib/nav-links'
 
   export let data
 
@@ -162,81 +162,19 @@
               </a>
             </div>
           </li>
-
-          <li>
-            <a href="/" aria-label="Home" class="text-nowrap">
-              <div class="flex gap-2 items-center font-bold">
-                <Icon icon="material-symbols:home" class="w-5 h-5" />
-                <div>Home</div>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="/guestbook" aria-label="Guestbook" class="text-nowrap">
-              <div class="flex gap-2 items-center font-bold">
-                <Icon
-                  icon="fluent-emoji-high-contrast:ledger"
-                  class="w-5 h-5"
-                />
-                <div>Guestbook</div>
-                <div class="badge badge-sm badge-accent">new</div>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href="/ai/chat" aria-label="AI Chat" class="text-nowrap">
-              <div class="flex gap-2 items-center font-bold">
-                <Icon icon="simple-icons:openai" class="w-5 h-5" />
-                <div>AI</div>
-                <div class="badge badge-sm badge-accent">new</div>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/my/settings/profile"
-              class="font-bold flex items-center gap-2 text-nowrap"
-              aria-label="Profile"
-            >
-              <Icon icon="mdi-user" class="w-5 h-5" />
-              <div>Profile</div>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/my/settings/account"
-              class="font-bold flex items-center gap-2 text-nowrap"
-              aria-label="Account Settings"
-            >
-              <Icon icon="mdi-grid" class="w-5 h-5" />
-              <div>Account</div>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/my/settings/security"
-              class="font-bold flex items-center gap-2 text-nowrap"
-              aria-label="Security Settings"
-            >
-              <Icon icon="mdi-gear" class="w-5 h-5" />
-              <div>Settings</div>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href={`${PUBLIC_POCKETBASE_URL}/_/`}
-              class="font-bold flex items-center gap-2 text-nowrap"
-              aria-label="PocketBase"
-            >
-              <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-              <div>PB Admin</div>
-            </a>
-          </li>
+          {#each navLinks as link}
+            <li>
+              <a href={link.href} aria-label={link.name} class="text-nowrap">
+                <div class="flex gap-2 items-center font-bold">
+                  <Icon icon={link.icon} class="w-5 h-5" />
+                  <div>{link.name}</div>
+                  {#if link.new}
+                    <div class="badge badge-sm badge-accent">new</div>
+                  {/if}
+                </div>
+              </a>
+            </li>
+          {/each}
 
           <form
             class="w-full flex mt-5"
