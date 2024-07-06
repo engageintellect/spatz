@@ -231,18 +231,6 @@
 
       <li>
         <a
-          href={`${PUBLIC_POCKETBASE_URL}/_/`}
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="PocketBase"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-          <div>PB Admin</div>
-        </a>
-      </li>
-
-      <li>
-        <a
           href="/my/settings/security"
           class="font-bold flex items-center gap-2 text-nowrap"
           aria-label="Security Settings"
@@ -250,6 +238,18 @@
         >
           <Icon icon="mdi-gear" class="w-5 h-5" />
           <div>Settings</div>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href={`${PUBLIC_POCKETBASE_URL}/_/`}
+          class="font-bold flex items-center gap-2 text-nowrap"
+          aria-label="PocketBase"
+          on:click={handleLinkClick}
+        >
+          <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
+          <div>PB Admin</div>
         </a>
       </li>
 
