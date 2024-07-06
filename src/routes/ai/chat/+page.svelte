@@ -84,10 +84,10 @@
     <div class="flex flex-col w-full">
       <div
         in:fade={{ delay: 0, duration: 300 }}
-        class="flex gap-2 items-center mt-5 md:mt-0 mb-2"
+        class="flex gap-2 items-center md:mt-0 my-2"
       >
-        <Icon icon="simple-icons:openai" class="w-10 h-10" />
-        <h1 class="text-3xl">{PUBLIC_OPENAI_MODEL}</h1>
+        <Icon icon="simple-icons:openai" class="w-7 h-7" />
+        <h1 class="text-2xl font-thin">{PUBLIC_OPENAI_MODEL}</h1>
       </div>
     </div>
   {/if}
