@@ -23,7 +23,7 @@
         <p class="py-5">
           The best way to start your next <a
             href="https://kit.svelte.dev"
-            class="text-primary underline">Svelte</a
+            class="text-primary underline">Sveltekit</a
           >
           project, if you care about building
           <span class="text-primary italic">fast</span>...

@@ -7,8 +7,6 @@
   import Icon from '@iconify/svelte'
   import { onMount } from 'svelte'
   import Stats from './Stats.svelte'
-  import Toast from './Toast.svelte'
-  import Video from '../assets/videos/spatz.mp4'
 
   let stars = 0,
     issues = 0,

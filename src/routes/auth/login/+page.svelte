@@ -50,13 +50,13 @@
     <div class="w-full max-w-lg">
       <a
         href="/auth/reset-password"
-        class="font-medium text-primary hover:cursor-pointer hover:underline"
+        class="font-medium text-sm text-primary hover:cursor-pointer hover:underline"
       >
         Forgot Password?</a
       >
     </div>
 
-    <button class="btn btn-primary group/loginButton">
+    <button class="btn btn-primary group/loginButton mt-2">
       {#if loading}
         <span class="loading loading-spinner loading-md"></span>
       {:else}
