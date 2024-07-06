@@ -26,7 +26,7 @@
       <li>
         <a
           href={navItem.href}
-          class="text-lg font-medium {$page.url.pathname === navItem.href
+          class="text-lg {$page.url.pathname === navItem.href
             ? 'active hover:bg-neutral'
             : ''}">{navItem.title}</a
         >

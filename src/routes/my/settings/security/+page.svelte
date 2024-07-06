@@ -10,7 +10,7 @@
       method="POST"
       class="flex flex-col space-y-2 w-full"
     >
-      <div class="text-2xl font-medium">Change Password</div>
+      <div class="text-2xl">Change Password</div>
       <div class="divider" />
       <Input
         id="oldPassword"

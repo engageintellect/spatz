@@ -93,7 +93,7 @@
 
 <div class="flex flex-col w-full h-full space-y-12">
   <div class="w-full">
-    <div class="text-2xl font-medium">Change Email</div>
+    <div class="text-2xl">Change Email</div>
     <div class="divider mt-2" />
 
     <Input
@@ -127,7 +127,7 @@
     </Modal>
   </div>
   <div class="w-full">
-    <div class="text-2xl font-medium">Change Username</div>
+    <div class="text-2xl">Change Username</div>
     <div class="divider mt-2" />
     <Input
       id="username"

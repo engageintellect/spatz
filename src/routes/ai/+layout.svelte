@@ -32,8 +32,7 @@
       <li>
         <a
           href={navItem.href}
-          class="text-lg font-medium bg-base-200 {$page.url.pathname ===
-          navItem.href
+          class="text-lg bg-base-200 {$page.url.pathname === navItem.href
             ? 'active hover:bg-neutral'
             : ''}">{navItem.title}</a
         >

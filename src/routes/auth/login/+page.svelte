@@ -50,7 +50,7 @@
     <div class="w-full max-w-lg">
       <a
         href="/auth/reset-password"
-        class="font-medium text-sm text-primary hover:cursor-pointer hover:underline"
+        class=" text-sm text-primary hover:cursor-pointer hover:underline"
       >
         Forgot Password?</a
       >

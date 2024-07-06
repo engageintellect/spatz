@@ -236,7 +236,7 @@
           <input
             type="radio"
             name="theme-dropdown"
-            class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start font-medium"
+            class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start"
             aria-label={theme}
             value={theme}
             on:change={handleThemeChange}

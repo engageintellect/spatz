@@ -87,10 +87,10 @@
     enctype="multipart/form-data"
     use:enhance={submitUpdateProfile}
   >
-    <div class="text-2xl font-medium">Update Profile</div>
+    <div class="text-2xl">Update Profile</div>
     <div class="divider" />
     <div class="form-control w-full max-w-lg">
-      <!-- <label for="avatar" class="label font-medium pb-1"> -->
+      <!-- <label for="avatar" class="label  pb-1"> -->
       <!-- <span class="label-text">Profile Picture</span> -->
       <!-- </label> -->
       <label

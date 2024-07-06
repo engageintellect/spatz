@@ -89,7 +89,7 @@
           aria-label="Theme Selector Menu"
         >
           <li
-            class="sticky top-0 theme-controller text-primary-content btn btn-primary btn-sm btn-block justify-start font-medium mb-2"
+            class="sticky top-0 theme-controller text-primary-content btn btn-primary btn-sm btn-block justify-start mb-2"
             aria-label={`Current Theme: ${$selectedTheme}`}
           >
             <div class="flex items-center gap-2">
@@ -102,7 +102,7 @@
               <input
                 type="radio"
                 name="theme-dropdown"
-                class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start font-medium"
+                class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start"
                 aria-label={theme}
                 value={theme}
                 on:change={handleThemeChange}
