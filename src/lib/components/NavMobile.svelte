@@ -169,7 +169,12 @@
       <div class="my-5">
         {#each navLinks as link}
           <li>
-            <a href={link.href} aria-label={link.name} class="text-nowrap">
+            <a
+              href={link.href}
+              aria-label={link.name}
+              class="text-nowrap"
+              on:click={handleLinkClick}
+            >
               <div class="flex gap-2 items-center font-bold">
                 <Icon icon={link.icon} class="w-5 h-5" />
                 <div>{link.name}</div>
