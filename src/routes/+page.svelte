@@ -8,11 +8,11 @@
   to show based on whether the user is logged in or not. -->
 
 <div>
-  <!-- If user is NOT logged in, show the landing content -->
   {#if !$currentUser}
+    <!-- If user is NOT logged in, show the landing content -->
     <SpatzLanding />
-    <!-- If user is logged in, show the marketing content -->
   {:else}
+    <!-- If user is logged in, show the marketing content -->
     <SpatzMarketing />
   {/if}
 </div>
