@@ -85,7 +85,7 @@
         >
       </div>
 
-      <div class="flex gap-2">
+      <div class="flex gap-2 items-center">
         {#if $currentUser}
           <button name="theme-toggle" aria-label="Open theme drawer">
             <label
@@ -96,7 +96,11 @@
             </label>
           </button>
 
-          <label for="primary-drawer" aria-label="open sidebar" class="">
+          <label
+            for="primary-drawer"
+            aria-label="open sidebar"
+            class="flex items-center"
+          >
             <div class="btn btn-primary btn-circle avatar">
               <div class="h-full w-full rounded-full">
                 {#if $currentUser?.avatar}
