@@ -143,6 +143,7 @@
           </div>
         </div>
 
+        <!-- Sidebar content here -->
         <ul
           tabindex="-1"
           class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-fit border-[0.5px] border-primary mt-3 z-50"
@@ -160,6 +161,15 @@
                 {$currentUser?.username}
               </a>
             </div>
+          </li>
+
+          <li>
+            <a href="/" aria-label="Home" class="text-nowrap">
+              <div class="flex gap-2 items-center font-bold">
+                <Icon icon="material-symbols:home" class="w-5 h-5" />
+                <div>Home</div>
+              </div>
+            </a>
           </li>
 
           <li>
@@ -187,17 +197,6 @@
 
           <li>
             <a
-              href={`${PUBLIC_POCKETBASE_URL}/_/`}
-              class="font-bold flex items-center gap-2 text-nowrap"
-              aria-label="PocketBase"
-            >
-              <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-              <div>PB Admin</div>
-            </a>
-          </li>
-
-          <li>
-            <a
               href="/my/settings/profile"
               class="font-bold flex items-center gap-2 text-nowrap"
               aria-label="Profile"
@@ -216,6 +215,18 @@
               <div>Account</div>
             </a>
           </li>
+
+          <li>
+            <a
+              href={`${PUBLIC_POCKETBASE_URL}/_/`}
+              class="font-bold flex items-center gap-2 text-nowrap"
+              aria-label="PocketBase"
+            >
+              <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
+              <div>PB Admin</div>
+            </a>
+          </li>
+
           <li>
             <a
               href="/my/settings/security"

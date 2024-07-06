@@ -72,7 +72,7 @@
   }
 </script>
 
-<div class="drawer max-w-2xl mx-auto w-full">
+<div class="drawer drawer-end max-w-2xl mx-auto w-full">
   <input id="primary-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
     <!-- Navbar -->
@@ -164,6 +164,20 @@
 
       <li>
         <a
+          href="/"
+          aria-label="Home"
+          class="text-nowrap"
+          on:click={handleLinkClick}
+        >
+          <div class="flex gap-2 items-center font-bold">
+            <Icon icon="material-symbols:home" class="w-5 h-5" />
+            <div>Home</div>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a
           href="/guestbook"
           aria-label="Guestbook"
           class="text-nowrap"
@@ -194,18 +208,6 @@
 
       <li>
         <a
-          href={`${PUBLIC_POCKETBASE_URL}/_/`}
-          class="font-bold flex items-center gap-2 text-nowrap"
-          aria-label="PocketBase"
-          on:click={handleLinkClick}
-        >
-          <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
-          <div>PB Admin</div>
-        </a>
-      </li>
-
-      <li>
-        <a
           href="/my/settings/profile"
           class="font-bold flex items-center gap-2 text-nowrap"
           aria-label="Profile"
@@ -226,6 +228,19 @@
           <div>Account</div>
         </a>
       </li>
+
+      <li>
+        <a
+          href={`${PUBLIC_POCKETBASE_URL}/_/`}
+          class="font-bold flex items-center gap-2 text-nowrap"
+          aria-label="PocketBase"
+          on:click={handleLinkClick}
+        >
+          <Icon icon="simple-icons:pocketbase" class="w-5 h-5" />
+          <div>PB Admin</div>
+        </a>
+      </li>
+
       <li>
         <a
           href="/my/settings/security"
