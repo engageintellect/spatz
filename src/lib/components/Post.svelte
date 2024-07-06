@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="w-full">
-        <div class=" font-thin text-primary">@{user}</div>
+        <div class="font-thin text-primary">@{user}</div>
         <div class="">{@html postContent}</div>
       </div>
     </div>

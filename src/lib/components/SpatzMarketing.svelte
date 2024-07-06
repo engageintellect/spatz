@@ -7,20 +7,39 @@
   import Icon from '@iconify/svelte'
   import { onMount } from 'svelte'
   import Stats from './Stats.svelte'
+  import { gsap } from 'gsap'
 
   let stars = 0,
     issues = 0,
     forks = 0
 
-  async function getStars() {
+  const getStars = async () => {
     const res = await fetch(`${PUBLIC_BASE_URL}/api/repoData`)
-    const data = await res.json()
-    stars = data.stars
-    issues = data.issues
-    forks = data.forks
+    const {
+      stars: fetchedStars,
+      issues: fetchedIssues,
+      forks: fetchedForks,
+    } = await res.json()
+    stars = fetchedStars
+    issues = fetchedIssues
+    forks = fetchedForks
   }
 
-  onMount(getStars)
+  onMount(() => {
+    getStars()
+
+    // Animate "stack" on mount
+    gsap.fromTo(
+      '.spatz-stack',
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.5,
+        ease: 'power4.out',
+      },
+    )
+  })
 </script>
 
 <div class="">
@@ -31,7 +50,11 @@
           class="tracking-tight text-primary font-extrabold flex items-center"
         >
           <div>spatz</div>
-          <div class="font-thin text-primary/[50%] tracking-tighter">stack</div>
+          <div
+            class="spatz-stack font-thin text-primary/[50%] tracking-tighter"
+          >
+            stack
+          </div>
         </div>
       </h1>
       <p class="mt-2">

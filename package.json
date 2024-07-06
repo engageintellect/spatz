@@ -1,6 +1,6 @@
 {
   "name": "spatz",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -42,6 +42,7 @@
   "type": "module",
   "dependencies": {
     "ai": "^3.0.24",
+    "gsap": "^3.12.5",
     "openai": "^4.38.2",
     "pocketbase": "^0.21.1"
   }

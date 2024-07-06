@@ -2,7 +2,9 @@
   import Icon from '@iconify/svelte'
   import LandingVideo from '$lib/components/LandingVideo.svelte'
   import LandingIcons from './LandingIcons.svelte'
-  import { onMount } from 'svelte'
+  import { onMount, onDestroy } from 'svelte'
+  import { gsap } from 'gsap'
+  import { page } from '$app/stores'
 
   let showIcons = true
 
@@ -10,6 +12,30 @@
     setTimeout(() => {
       showIcons = false
     }, 2500)
+
+    // GSAP animation for combined effects
+    import('gsap').then(({ gsap }) => {
+      const animation = gsap.fromTo(
+        '.mockup-browser',
+        { opacity: 0, y: 50, scale: 0.9 },
+        { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out' },
+      )
+
+      // Cleanup animation on destroy
+      onDestroy(() => {
+        animation.kill()
+        console.log('Animation killed')
+      })
+
+      // Handle route changes to kill animations and prevent conflicts
+      const unsubscribe = page.subscribe(() => {
+        animation.kill()
+      })
+
+      onDestroy(() => {
+        unsubscribe()
+      })
+    })
   })
 </script>
 
@@ -41,7 +67,7 @@
           </a>
           <a
             href="/auth/login"
-            class="btn btn-primary btn-outline flex-1 flex items-cetner justify-between group/loginButton"
+            class="btn btn-primary btn-outline flex-1 flex items-center justify-between group/loginButton"
           >
             <div>login</div>
             <Icon

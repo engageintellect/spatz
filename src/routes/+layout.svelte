@@ -11,16 +11,17 @@
   import type { PageData } from './$types'
   import { customThemes } from '$lib/custom-themes'
   import { chatMessages } from '$lib/stores/chatMessages'
+  import { goto } from '$app/navigation'
 
   // START VIEW TRANSITIONS API
   import { onNavigate } from '$app/navigation'
 
   onNavigate((navigation) => {
-    // @ts-ignore
+    // @ts-ignore <-- This is a private API so we need to ignore the TS error
     if (!document.startViewTransition) return
 
     return new Promise((resolve) => {
-      // @ts-ignore
+      // @ts-ignore <-- This is a private API so we need to ignore the TS error
       document.startViewTransition(async () => {
         resolve()
         await navigation.complete
@@ -68,7 +69,7 @@
     // Clear AI chat messages
     chatMessages.set([])
     localStorage.removeItem('chatMessages')
-    window.location.href = '/'
+    goto('/')
   }
 </script>
 
