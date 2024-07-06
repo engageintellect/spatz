@@ -5,7 +5,6 @@
       title: 'chat',
       href: '/ai/chat',
     },
-
     {
       title: 'a',
       href: '/ai/a',

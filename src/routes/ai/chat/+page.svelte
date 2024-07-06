@@ -14,6 +14,7 @@
   import { toast } from '$lib/stores/toast' // Import the toast store
 
   let messagesEnd: HTMLElement
+  let inputElement: HTMLInputElement
   const {
     input,
     handleSubmit: originalHandleSubmit,
@@ -29,6 +30,11 @@
     setMessages(savedMessages)
     initialLoadComplete = true
     scrollToBottom()
+
+    // Set focus on the input element for medium or larger screen sizes
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      inputElement.focus()
+    }
   })
 
   async function handleSubmit(event: any) {
@@ -91,9 +97,9 @@
       <div class="flex gap-2 w-full">
         <input
           placeholder="Enter your query"
-          autofocus
           bind:value={$input}
           class="w-full input input-bordered focus:outline-none focus-within:outline-none"
+          bind:this={inputElement}
         />
         <button type="submit" class="btn btn-primary">
           <div class="flex gap-2 items-center">
@@ -163,10 +169,6 @@
           </div>
           <div class="chat-footer opacity-50">
             <div class="flex items-center gap-2 mt-1">
-              <!-- <div>
-                {message.role === 'user' ? 'Seen at 12:46' : 'Delivered'}
-              </div> -->
-
               <button
                 on:click={() => copyToClipboard(message.content)}
                 class=""
