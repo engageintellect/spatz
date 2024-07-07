@@ -1,7 +1,7 @@
 <script lang="ts">
   import { useChat } from 'ai/svelte'
   import { fade } from 'svelte/transition'
-  import { onMount } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import { currentUser } from '$lib/stores/user'
   import { getImageURL } from '$lib/utils'
   import { chatMessages } from '$lib/stores/chatMessages'
@@ -12,6 +12,7 @@
   import Icon from '@iconify/svelte'
   import Toast from '$lib/components/Toast.svelte'
   import { toast } from '$lib/stores/toast' // Import the toast store
+  import { gsap } from 'gsap'
 
   let messagesEnd: HTMLElement
   let inputElement: HTMLInputElement
@@ -37,11 +38,16 @@
     }
   })
 
+  afterUpdate(() => {
+    animateNewMessages()
+  })
+
   async function handleSubmit(event: any) {
     event.preventDefault()
     await originalHandleSubmit(event)
     chatMessages.set(get(messages))
     scrollToBottom()
+    animateNewMessages()
   }
 
   function clearChat() {
@@ -76,6 +82,26 @@
       },
       (err) => console.error('Could not copy text: ', err),
     )
+  }
+
+  function animateNewMessages() {
+    const messages = document.querySelectorAll('.chat')
+    messages.forEach((message, index) => {
+      if (!message.classList.contains('animated')) {
+        gsap.fromTo(
+          message,
+          { opacity: 0, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power4.out',
+            delay: index * 0.05,
+          },
+        )
+        message.classList.add('animated')
+      }
+    })
   }
 </script>
 
