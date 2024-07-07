@@ -32,7 +32,7 @@ export const navLinks = [
 
 
 	{
-		name: 'Settings',
+		name: 'Security',
 		href: '/my/settings/security',
 		icon: 'mdi-gear',
 		new: false

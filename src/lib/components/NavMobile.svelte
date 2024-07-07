@@ -157,6 +157,7 @@
             href="/my/settings/profile"
             class="flex gap-2"
             aria-label="Profile Settings"
+            on:click={handleLinkClick}
           >
             <div class="btn btn-primary btn-circle avatar">
               {#if $currentUser?.avatar}
@@ -191,52 +192,6 @@
           </a>
         </div>
       </li>
-
-      <!-- <li class="">
-        <div
-          class="bg-primary hover:bg-primary text-primary-content w-full truncate"
-        >
-          <a
-            href="/my/settings/profile"
-            class="truncate font-bold flex items-center gap-2"
-            aria-label="Profile Settings"
-            on:click={handleLinkClick}
-          >
-            <div class="btn btn-circle btn-sm">
-              <div class="h-full w-full">
-                {#if $currentUser?.avatar}
-                  <img
-                    src={$currentUser?.avatar
-                      ? getImageURL(
-                          $currentUser?.collectionId,
-                          $currentUser?.id,
-                          $currentUser?.avatar,
-                        )
-                      : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
-                    alt="User avatar"
-                    class="rounded-full"
-                  />
-                {:else}
-                  <Icon
-                    icon="mdi-account-circle"
-                    class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100"
-                  />
-                {/if}
-              </div>
-            </div>
-
-            <div class="flex flex-col">
-              <div>
-                @{$currentUser?.username}
-              </div>
-
-              <div class="text-xs font-thin">
-                {$currentUser?.email}
-              </div>
-            </div>
-          </a>
-        </div>
-      </li> -->
 
       <div class="my-2">
         {#each navLinks as link}
@@ -298,8 +253,8 @@
         aria-label={`Current Theme: ${$selectedTheme}`}
       >
         <div class="flex items-center gap-2 btn btn-primary">
-          <Icon icon="mdi-done" class="w-5 h-5" />
           {$selectedTheme}
+          <Icon icon="mdi-done" class="w-5 h-5" />
         </div>
       </li>
 
