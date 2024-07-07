@@ -85,7 +85,7 @@
         </div>
         <ul
           tabindex="-1"
-          class="dropdown-content dropdown-end rounded-box border-primary border-[0.5px] bg-base-100 z-50 mt-3 h-96 w-52 overflow-auto p-2 shadow-lg"
+          class="dropdown-content dropdown-end rounded-box border-primary border-[0.5px] bg-base-100 z-50 mt-3 h-[50vh] overflow-auto w-72 p-2 shadow-lg"
           aria-label="Theme Selector Menu"
         >
           <li
@@ -94,7 +94,9 @@
           >
             <div class="flex items-center gap-2">
               <Icon icon="mdi-done" class="w-5 h-5" />
-              {$selectedTheme}
+              <div class="text-nowrap">
+                {$selectedTheme}
+              </div>
             </div>
           </li>
           {#each themes.sort() as theme}
@@ -102,7 +104,7 @@
               <input
                 type="radio"
                 name="theme-dropdown"
-                class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start"
+                class="theme-controller text-base-content btn btn-ghost btn-sm btn-block justify-start text-nowrap"
                 aria-label={theme}
                 value={theme}
                 on:change={handleThemeChange}
@@ -149,35 +151,65 @@
           class="dropdown-content fomt-semibold menu p-2 shadow bg-base-100 rounded-box w-fit border-[0.5px] border-primary mt-3 z-50"
           aria-label="User Menu"
         >
-          <li class="mb-5">
-            <div
-              class="bg-primary hover:bg-primary text-primary-content w-full truncate"
-            >
+          <li class="">
+            <div class="">
               <a
                 href="/my/settings/profile"
-                class="truncate font-bold"
+                class="flex gap-2"
                 aria-label="Profile Settings"
               >
-                {$currentUser?.username}
+                <div class="btn btn-primary btn-circle avatar">
+                  {#if $currentUser?.avatar}
+                    <img
+                      src={$currentUser?.avatar
+                        ? getImageURL(
+                            $currentUser?.collectionId,
+                            $currentUser?.id,
+                            $currentUser?.avatar,
+                          )
+                        : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
+                      alt="User avatar"
+                      class="max-w-12 object-cover rounded-full"
+                    />
+                  {:else}
+                    <Icon
+                      icon="mdi-account-circle"
+                      class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100"
+                    />
+                  {/if}
+                </div>
+
+                <div class="flex flex-col">
+                  <div>
+                    @{$currentUser?.username}
+                  </div>
+
+                  <div class="text-xs font-thin">
+                    {$currentUser?.email}
+                  </div>
+                </div>
               </a>
             </div>
           </li>
-          {#each navLinks as link}
-            <li>
-              <a href={link.href} aria-label={link.name} class="text-nowrap">
-                <div class="flex gap-2 items-center font-bold">
-                  <Icon icon={link.icon} class="w-5 h-5" />
-                  <div>{link.name}</div>
-                  {#if link.new}
-                    <div class="badge badge-sm badge-accent">new</div>
-                  {/if}
-                </div>
-              </a>
-            </li>
-          {/each}
+
+          <div class="my-2">
+            {#each navLinks as link}
+              <li>
+                <a href={link.href} aria-label={link.name} class="text-nowrap">
+                  <div class="flex gap-2 items-center font-bold">
+                    <Icon icon={link.icon} class="w-5 h-5" />
+                    <div>{link.name}</div>
+                    {#if link.new}
+                      <div class="badge badge-sm badge-accent">new</div>
+                    {/if}
+                  </div>
+                </a>
+              </li>
+            {/each}
+          </div>
 
           <form
-            class="w-full flex mt-5"
+            class="w-full flex"
             method="POST"
             action="/auth/logout"
             on:submit={handleLogout}

@@ -152,21 +152,93 @@
       <!-- Sidebar content here -->
 
       <li class="">
+        <div class="">
+          <a
+            href="/my/settings/profile"
+            class="flex gap-2"
+            aria-label="Profile Settings"
+          >
+            <div class="btn btn-primary btn-circle avatar">
+              {#if $currentUser?.avatar}
+                <img
+                  src={$currentUser?.avatar
+                    ? getImageURL(
+                        $currentUser?.collectionId,
+                        $currentUser?.id,
+                        $currentUser?.avatar,
+                      )
+                    : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
+                  alt="User avatar"
+                  class="max-w-12 object-cover rounded-full"
+                />
+              {:else}
+                <Icon
+                  icon="mdi-account-circle"
+                  class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100"
+                />
+              {/if}
+            </div>
+
+            <div class="flex flex-col">
+              <div>
+                @{$currentUser?.username}
+              </div>
+
+              <div class="text-xs font-thin">
+                {$currentUser?.email}
+              </div>
+            </div>
+          </a>
+        </div>
+      </li>
+
+      <!-- <li class="">
         <div
           class="bg-primary hover:bg-primary text-primary-content w-full truncate"
         >
           <a
             href="/my/settings/profile"
-            class="truncate font-bold"
+            class="truncate font-bold flex items-center gap-2"
             aria-label="Profile Settings"
             on:click={handleLinkClick}
           >
-            {$currentUser?.username}
+            <div class="btn btn-circle btn-sm">
+              <div class="h-full w-full">
+                {#if $currentUser?.avatar}
+                  <img
+                    src={$currentUser?.avatar
+                      ? getImageURL(
+                          $currentUser?.collectionId,
+                          $currentUser?.id,
+                          $currentUser?.avatar,
+                        )
+                      : `https://ui-avatars.com/api/?name=${$currentUser?.email}`}
+                    alt="User avatar"
+                    class="rounded-full"
+                  />
+                {:else}
+                  <Icon
+                    icon="mdi-account-circle"
+                    class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100"
+                  />
+                {/if}
+              </div>
+            </div>
+
+            <div class="flex flex-col">
+              <div>
+                @{$currentUser?.username}
+              </div>
+
+              <div class="text-xs font-thin">
+                {$currentUser?.email}
+              </div>
+            </div>
           </a>
         </div>
-      </li>
+      </li> -->
 
-      <div class="my-5">
+      <div class="my-2">
         {#each navLinks as link}
           <li>
             <a
