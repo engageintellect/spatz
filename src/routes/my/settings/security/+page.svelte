@@ -35,11 +35,11 @@
       />
       <a
         href="/auth/reset-password"
-        class="text-primary hover:cursor-point hover:underline"
+        class="text-primary hover:cursor-point hover:underline text-sm"
       >
         I forgot my password</a
       >
-      <div class="w-full max-w-lg pt-3">
+      <div class="w-full max-w-lg pt-2">
         <button type="submit" class="btn btn-primary w-full max-w-lg">
           Update Password
         </button>
