@@ -88,6 +88,7 @@ pnpm i && pnpm run dev --host
 ```
 /src
 ├── /lib
+│   └── app.d.ts (global types)
 ├── /assets
 │   └── /images
 ├── /components

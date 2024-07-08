@@ -3,7 +3,6 @@
   import LandingVideo from '$lib/components/LandingVideo.svelte'
   import LandingIcons from './LandingIcons.svelte'
   import { onMount, onDestroy } from 'svelte'
-  import { gsap } from 'gsap'
   import { page } from '$app/stores'
 
   let showIcons = true

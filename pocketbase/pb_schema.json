@@ -441,13 +441,29 @@
         "options": {
           "convertUrls": false
         }
+      },
+      {
+        "system": false,
+        "id": "umhjdkil",
+        "name": "likes",
+        "type": "relation",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": false,
+          "minSelect": null,
+          "maxSelect": null,
+          "displayFields": null
+        }
       }
     ],
     "indexes": [],
     "listRule": "",
     "viewRule": "",
     "createRule": "",
-    "updateRule": null,
+    "updateRule": "",
     "deleteRule": null,
     "options": {}
   },

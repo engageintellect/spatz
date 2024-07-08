@@ -7,7 +7,6 @@
   import Post from '$lib/components/Post.svelte'
   import TextArea from '$lib/components/TextArea.svelte'
   import Icon from '@iconify/svelte'
-  import { gsap } from 'gsap'
 
   export let form: {
     data: {
@@ -169,6 +168,9 @@
               {#each data.posts as post}
                 <div class="post-wrapper hidden">
                   <Post
+                    id={post.id}
+                    postDate={post.created}
+                    postAuthor={post.username}
                     avatar={post?.avatar
                       ? getImageURL(
                           $currentUser?.collectionId,
@@ -176,9 +178,9 @@
                           post?.avatar,
                         )
                       : `https://ui-avatars.com/api/?name=${post?.username}`}
-                    user={post.username}
                     postContent={post.content}
-                    postDate={post.created}
+                    likes={post.likes}
+                    currentUser={$currentUser}
                   />
                 </div>
               {/each}

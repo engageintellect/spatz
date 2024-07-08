@@ -1,9 +1,13 @@
 <script lang="ts">
+  import { enhance } from '$app/forms'
   import Icon from '@iconify/svelte'
-  export let user
+  export let postAuthor
   export let postContent
   export let postDate
   export let avatar
+  export let likes
+  export let id
+  export let currentUser
 
   import { formatFriendlyDate, timeSince } from '$lib/utils'
 </script>
@@ -31,8 +35,31 @@
         </div>
       </div>
       <div class="w-full">
-        <div class="font-thin text-primary">@{user}</div>
-        <div class="">{@html postContent}</div>
+        <div class="font-thin text-primary">@{postAuthor}</div>
+        <div class="font-thin">{@html postContent}</div>
+
+        <div class="flex items-center gap-5">
+          <div class="flex items-center gap-1 mt-2">
+            <form use:enhance action="?/likePost" method="POST">
+              <input type="hidden" name="postId" value={id} />
+              <input
+                type="hidden"
+                name="currentUserId"
+                value={currentUser.id}
+              />
+              <button type="submit" class="flex items-center">
+                <Icon
+                  icon={likes.includes(currentUser.id)
+                    ? 'ph:heart-fill'
+                    : 'ph:heart'}
+                  class={`w-5 h-5 text-error`}
+                />
+                <span class="sr-only">Like</span>
+              </button>
+            </form>
+            <div class="font-thin">{likes.length ?? 0}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

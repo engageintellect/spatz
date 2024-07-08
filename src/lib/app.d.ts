@@ -20,6 +20,7 @@ declare namespace App {
     updated: string;
     avatar: string;
     username: string;
+    likes: string[];
   }
 
   interface User {
