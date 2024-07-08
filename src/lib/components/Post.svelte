@@ -47,7 +47,11 @@
                 name="currentUserId"
                 value={currentUser.id}
               />
-              <button type="submit" class="flex items-center">
+              <button
+                type="submit"
+                class="flex items-center md:tooltip"
+                data-tip={`${likes.includes(currentUser.id) ? 'Unlike' : 'Like'} Post`}
+              >
                 <Icon
                   icon={likes.includes(currentUser.id)
                     ? 'ph:heart-fill'
