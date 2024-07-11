@@ -65,7 +65,7 @@
                   icon={likes.includes(currentUser.id)
                     ? 'ph:heart-fill'
                     : 'ph:heart'}
-                  class={`w-5 h-5 text-error ${loading ? 'animate-ping' : ''}`}
+                  class={`w-5 h-5 text-error ${loading ? 'animate-bounce' : ''}`}
                 />
                 <span class="sr-only">Like</span>
               </button>
