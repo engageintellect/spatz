@@ -9,6 +9,8 @@
   export let id
   export let currentUser
 
+  let loading = false
+
   import { formatFriendlyDate, timeSince } from '$lib/utils'
 </script>
 
@@ -40,24 +42,39 @@
 
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-1 mt-2">
-            <form use:enhance action="?/likePost" method="POST">
+            <form
+              use:enhance={() => {
+                loading = true
+                return async ({ update }) => {
+                  await update()
+                  loading = false
+                }
+              }}
+              action="?/likePost"
+              method="POST"
+            >
               <input type="hidden" name="postId" value={id} />
               <input
                 type="hidden"
                 name="currentUserId"
                 value={currentUser.id}
+                disabled={loading}
               />
               <button
                 type="submit"
                 class="flex items-center md:tooltip"
                 data-tip={`${likes.includes(currentUser.id) ? 'Unlike' : 'Like'} Post`}
               >
-                <Icon
-                  icon={likes.includes(currentUser.id)
-                    ? 'ph:heart-fill'
-                    : 'ph:heart'}
-                  class={`w-5 h-5 text-error`}
-                />
+                {#if loading}
+                  <span class="loading loading-spinner loading-sm"></span>
+                {:else}
+                  <Icon
+                    icon={likes.includes(currentUser.id)
+                      ? 'ph:heart-fill'
+                      : 'ph:heart'}
+                    class={`w-5 h-5 text-error`}
+                  />
+                {/if}
                 <span class="sr-only">Like</span>
               </button>
             </form>
