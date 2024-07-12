@@ -40,8 +40,8 @@
         <div class="font-thin text-primary">@{postAuthor}</div>
         <div class="font-thin">{@html postContent}</div>
 
-        <div class="flex items-center gap-5">
-          <div class="flex items-center gap-1 mt-2">
+        <div class="flex items-center gap-5 mt-2">
+          <div class="flex items-center gap-1">
             <form
               use:enhance={() => {
                 loading = true
@@ -72,6 +72,14 @@
             </form>
             <div class="font-thin">{likes.length ?? 0}</div>
           </div>
+          <a
+            href={`mailto:?subject=check this out&body=${encodeURIComponent(window.location.href)}`}
+          >
+            <Icon
+              icon="material-symbols:ios-share"
+              class="w-5 h-5 text-base-content"
+            />
+          </a>
         </div>
       </div>
     </div>
