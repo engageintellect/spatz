@@ -75,10 +75,7 @@
           <a
             href={`mailto:?subject=check this out&body=${encodeURIComponent(window.location.href)}`}
           >
-            <Icon
-              icon="material-symbols:ios-share"
-              class="w-5 h-5 text-base-content"
-            />
+            <Icon icon="tabler:send" class="w-5 h-5 text-base-content" />
           </a>
         </div>
       </div>
