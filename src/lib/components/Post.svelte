@@ -72,11 +72,13 @@
             </form>
             <div class="font-thin">{likes.length ?? 0}</div>
           </div>
-          <a
-            href={`mailto:?subject=check this out&body=${encodeURIComponent(window.location.href)}`}
-          >
-            <Icon icon="tabler:send" class="w-5 h-5 text-base-content" />
-          </a>
+          {#if typeof window !== 'undefined'}
+            <a
+              href={`mailto:?subject=check this out&body=${encodeURIComponent(window.location.href)}`}
+            >
+              <Icon icon="tabler:send" class="w-5 h-5 text-base-content" />
+            </a>
+          {/if}
         </div>
       </div>
     </div>
