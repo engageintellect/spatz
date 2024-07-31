@@ -4,37 +4,28 @@
   import LandingIcons from './LandingIcons.svelte'
   import { onMount, onDestroy } from 'svelte'
   import { page } from '$app/stores'
+  import { gsap } from 'gsap'
 
   let showIcons = true
+  let heroHidden = true
 
   onMount(() => {
     setTimeout(() => {
       showIcons = false
     }, 2500)
 
-    // GSAP animation for combined effects
-    import('gsap').then(({ gsap }) => {
-      const animation = gsap.fromTo(
-        '.mockup-browser',
-        { opacity: 0, y: 50, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out' },
-      )
-
-      // Cleanup animation on destroy
-      onDestroy(() => {
-        animation.kill()
-        console.log('Animation killed')
+    gsap
+      .timeline({
+        onStart: () => {
+          heroHidden = false
+        },
       })
-
-      // Handle route changes to kill animations and prevent conflicts
-      const unsubscribe = page.subscribe(() => {
-        animation.kill()
+      .from('.mockup-browser', {
+        delay: 0.5,
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
       })
-
-      onDestroy(() => {
-        unsubscribe()
-      })
-    })
   })
 </script>
 
@@ -79,7 +70,9 @@
     </div>
   </div>
 
-  <div class="mockup-browser border border-base-300 shadow-xl mt-5">
+  <div
+    class={`mockup-browser border border-base-300 shadow-xl mt-5 ${heroHidden ? 'opacity-0' : ''}`}
+  >
     <div class="mockup-browser-toolbar">
       <div class="bg-base-300 px-2 py-1 w-full card">
         <div class="flex items-center gap-1">

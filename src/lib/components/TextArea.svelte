@@ -9,7 +9,6 @@
 
 <div class="form-control w-full mb-2">
   <textarea
-    autofocus
     class="textarea text-lg resize-none textarea-bordered textarea-lg bg-base-100 w-full focus-within:outline-none shadow-inner focus:shadow-inner"
     {placeholder}
     {required}
