@@ -2,7 +2,8 @@
 
 ## Description
 
-A complete, fullstack template for Svelte.
+A complete, fullstack template for Svelte. Checkout [spatz-2](https://github.com/engageintellect/spatz-2) 
+for a more the current version based on Svelte 5.
 
 [Demo App](https://spatz.engage-dev.com)
 
